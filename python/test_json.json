@@ -1,14 +1,9 @@
-
-
 [
-	{"id_interno": "24", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "00571"}, 
-	{"id_interno": "28", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "00595"}, 
-	{"id_interno": "32", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "00571"}, 
-	{"id_interno": "41", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "00595"}, 
-	{"id_interno": "45", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "01295"}, 
-	{"id_interno": "46", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "01295"}, 
-	{"id_interno": "55", "clase_COLOR": "CC_1_BLACK", "clase_CURVA": "CV_1_CV1", "clase_GRUPO": "CG_1_GRUPO_NO_PACK", "EAN": "01295"}
+{"id_interno": "24", "clase_COLOR": "CC_1_BLACK", "EAN": "00571", "y1":"1"}, 
+{"id_interno": "28", "clase_COLOR": "CC_1_BLACK", "EAN": "00595", "y1":"2"}, 
+{"id_interno": "32", "clase_COLOR": "CC_1_BLACK", "EAN": "00571", "y1":"3"}, 
+{"id_interno": "41", "clase_COLOR": "CC_1_BLACK", "EAN": "00595", "y1":"4"}, 
+{"id_interno": "45", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "y1":"1"}, 
+{"id_interno": "46", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "y1":"2"}, 
+{"id_interno": "55", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "y1":"1"}
 ]
-
-
-

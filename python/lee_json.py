@@ -1,15 +1,22 @@
-
+import pandas as pd
 #AUTOTT:::
 
-import json
 
 #Marcelo estuvo aqui
-with open('test_json.json') as data_file:
 
-       
-    data = json.load(data_file)
-    for v in data.values():
-        print(v['id_interno'])
+def leeJSON(path_, file_):
+    completePath = f"{path_}{file_}"
+    df = pd.read_json(completePath)
+    print(df.to_string()) 
+
+def clasificaPor(path_, file_,type_):
+    type_ # ese el campo por el que se nos va a ocurrir clasificator
+    #ejemplos:
+
+
+
+leeJSON("","test_json.json")
+
 
 
 

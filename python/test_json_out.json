@@ -1,0 +1,12 @@
+
+
+[
+    {"id_interno": "1", "fila":"1"}, 
+    {"id_interno": "2", "fila":"1" }, 
+    {"id_interno": "3", "fila":"1"}, 
+    {"id_interno": "4", "fila":"2"}, 
+    {"id_interno": "5", "fila":"2"}, 
+    {"id_interno": "6", "fila":"3"}, 
+    {"id_interno": "7", "fila":"3"}
+
+]

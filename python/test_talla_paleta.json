@@ -1,0 +1,10 @@
+[
+    {"id_interno": "24", "clase_COLOR": "CC_1_BLACK", "EAN": "00571", "TALLA":"CHICA", "PALETA":"VERDE_PLOMO_BLANCO"}, 
+    {"id_interno": "28", "clase_COLOR": "CC_1_BLACK", "EAN": "00595", "TALLA":"MEDIANA", "PALETA":"VERDE_PLOMO_BLANCO"}, 
+    {"id_interno": "32", "clase_COLOR": "CC_1_BLACK", "EAN": "00571", "TALLA":"GRANDE", "PALETA":"VERDE_PLOMO_BLANCO"}, 
+    {"id_interno": "41", "clase_COLOR": "CC_1_BLACK", "EAN": "00595", "TALLA":"SUPER_GRANDE", "PALETA":"VERDE_BLANCO_PLOMO"}, 
+    {"id_interno": "45", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "TALLA":"1", "PALETA":"PLOMO_BLANCO_VERDE"}, 
+    {"id_interno": "46", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "TALLA":"2", "PALETA":"PLOMO_BLANCO_VERDE"}, 
+    {"id_interno": "55", "clase_COLOR": "CC_1_BLACK", "EAN": "01295", "TALLA":"1", "PALETA":"PLOMO_BLANCO_VERDE"}
+    ]
+    
