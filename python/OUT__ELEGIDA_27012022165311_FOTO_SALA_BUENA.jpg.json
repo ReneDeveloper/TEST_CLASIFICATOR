@@ -1,24 +1,6 @@
 [
     {
         "tipo": "bottle",
-        "id_interno": "107",
-        "x1": 203,
-        "x2": 786,
-        "y1": 356,
-        "y2": 693,
-        "w": 583,
-        "h": 337,
-        "marca": "EN_DESARROLLO",
-        "clase_H": "H16",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
-        "clase_VOLUMEN": "V_9823.55",
-        "altura_media": 16,
-        "EAN": "NULL"
-    },
-    {
-        "tipo": "bottle",
         "id_interno": "171",
         "x1": 54,
         "x2": 123,

@@ -1,6 +1,3 @@
-
-
-
 # quiero librerias infinitas amigo
 # https://stackoverflow.com/questions/54632009/how-to-increase-the-maximum-size-of-the-aws-lambda-deployment-package-requesten
 # https://thinkinfi.com/yolo-object-detection-using-python-opencv/
@@ -174,6 +171,12 @@ def testYolo(src_, types_):
     for i in range(len(boxes)):
         if i in indexes:
             x, y, w, h = boxes[i]
+
+
+            #si tiene una guatones muy grande
+            if w>100:
+                continue
+
             label = str(classes[class_ids[i]])
             confidence_label = int(confidences[i] * 100)
             #color = colors[i]
