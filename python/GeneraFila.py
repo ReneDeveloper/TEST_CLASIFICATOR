@@ -4,9 +4,6 @@ import json
 
 from sklearn.cluster import KMeans
 
-def jsonDefault(object):
-    return object.__dict__
-
 def leeJSON(path_, file_):
     completePath = f"{path_}{file_}"
     df = pd.read_json(completePath)
@@ -41,10 +38,3 @@ with open(rutasalida, 'w') as file:
     print(js, file=file)
     file.close()
     
-
-
-
-
-
-
-
