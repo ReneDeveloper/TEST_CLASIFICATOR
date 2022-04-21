@@ -1,3 +1,6 @@
+
+
+
 # quiero librerias infinitas amigo
 # https://stackoverflow.com/questions/54632009/how-to-increase-the-maximum-size-of-the-aws-lambda-deployment-package-requesten
 # https://thinkinfi.com/yolo-object-detection-using-python-opencv/
@@ -56,7 +59,7 @@ def testYolo(src_, types_):
     #img = cv2.imread(f'{path_}{src_}')
 
     # Load Yolo
-    yolo_weight = "yolov3.weights"
+    yolo_weight = "C:/RSILVA_REPOS/yolov3.weights"
     yolo_config = "yolov3.cfg"
     coco_labels = "coco.names"
     net = cv2.dnn.readNet(yolo_weight, yolo_config)
@@ -182,11 +185,13 @@ def testYolo(src_, types_):
             if not label in types_:
                 continue
 
-            elemento["id_interno"] = label + "_"+str(i)
+            elemento["id_interno"] = str(i)
             elemento["x1"] = x
             elemento["x2"] = x + w
             elemento["y1"] = y
             elemento["y2"] = y + h
+            elemento["w"] = w
+            elemento["h"] = h
             elemento["marca"] = "EN_DESARROLLO"
 
             #altura_mitad = int(h/2)
@@ -341,9 +346,9 @@ def __paleta__(path_, file_):
     print(f"ABORTADO:imwrite:visualize_color_img{string_COLOR}")
     #cv2.imwrite(ruta_OUT, visualize_color_img)
 
-parametro = "_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg"
-print("parametro:" + parametro)
-testYolo(parametro, types_=['bottle'])
+
+testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle'])
+testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle'])
 
 
 """
