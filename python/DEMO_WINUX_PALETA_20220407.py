@@ -42,7 +42,7 @@ def testYolo(src_, types_):
         img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
         img_ORIGINAL = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     else:
-        path_ = "C:/RSILVA_BOT_BASICS/ETL_CADEM/VISION_ARTIFICIAL/DEMO_OBJETOS/"
+        path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
         img = None
         img = cv2.imread(f'{path_}{src_}')
         #img_ORIGINAL = None
