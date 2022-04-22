@@ -21,20 +21,25 @@ def clasificador(cdato, argcalificador,ncluster):
     Salida = pd.concat([cdato, df_labels], axis=1)
     return Salida
 
+
+print ("inicia Generador de Filas")
 carpeta ="C:\\documentos\\2022\\Rene\\TEST_CLASIFICATOR\\python\\"
-Archivo ="test_json.json"
+Archivo ="OUT__ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg.json"
+
+
+ArchivoSalida= f"{Archivo.split('.')[0]}_CONFILA.json"
+
+
 Datos = leeJSON(carpeta,Archivo)
 
 ncluster  =4
 camposclasificadores = ["y1"]
 csalida =clasificador(Datos,camposclasificadores,ncluster)
+resultado = csalida.to_dict('records')
 
-js = csalida.to_json(orient='records')
-print(js)
-Salida="DataConFila.json"
-rutasalida= carpeta + Salida
+rutasalida= carpeta + ArchivoSalida
 
 with open(rutasalida, 'w') as file:
-    print(js, file=file)
-    file.close()
-    
+     json.dump(resultado, file, indent = 4)
+
+print (f"Finaliza Generador de Filas OK\n{rutasalida}")
