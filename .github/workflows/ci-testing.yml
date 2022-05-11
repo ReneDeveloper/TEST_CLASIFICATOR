@@ -20,7 +20,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
         python-version: [ 3.9 ]
-        model: [ 'yolov3n' ]  # models to test
+        model: [ 'yolov5n' ]  # models to test
 
     # Timeout: https://stackoverflow.com/a/59076067/4521646
     timeout-minutes: 60
@@ -85,8 +85,7 @@ jobs:
     
           # Python
           python - <<EOF
-          import torch
-          # model = torch.hub.load('ultralytics/yolov5', 'custom', path=$weights)
+          import torch         
           EOF
 
         shell: bash
