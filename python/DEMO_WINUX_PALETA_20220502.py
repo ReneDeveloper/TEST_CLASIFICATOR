@@ -45,7 +45,7 @@ def testYolo(src_, types_):
         path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
         img = None
         img = cv2.imread(f'{path_}{src_}')
-        print("tamos en windors compare")
+        #print(f"tamos en windors compare:{src_}")
 
     salida = {}
 
@@ -246,7 +246,19 @@ def testYolo(src_, types_):
             try:
                 #print(f"ABORTADO:SUB-IMAGEN:  cv2.imwrite")
                 cv2.imwrite(img_sub_path + img_sub_name, img_sub)
-                __paleta__(img_sub_path, img_sub_name)
+                salida_PALETA = __paleta__(img_sub_path, img_sub_name)
+                print(f"esta es la salida de Paleta:{salida_PALETA['OUT']}")
+                print(f"esta es la salida de COLORES:{salida_PALETA['OUT']}")
+                print(f"esta es la salida de COLORES:{salida_PALETA['OUT']}")
+                lista["palquelee"] = "palquelee"
+
+                lista["COLOR1"] = "COLOR1"
+                lista["COLOR2"] = "COLOR2"
+                lista["COLOR3"] = "COLOR3"
+
+
+
+
             except Exception as ex:
                 print(f"Exception in imwrite -  : {ex}")
 
@@ -275,12 +287,13 @@ def testYolo(src_, types_):
 
     else:
 
-        print("tamos en windors compare")
+        print("VAMOS A ESCRIBIR EL JSON EL LOCAL")
 
         ruta_OUT = f'{path_}_OUT_BANDEJERO_1024_{src_}'
         print("ruta_OUT:{ruta_OUT}")
         cv2.imwrite(ruta_OUT,img)
 
+        #print(lista)
         print(lista)
         with open("OUT_" + src_ + ".json", "w") as outfile:
             json.dump(lista, outfile, indent = 4)
@@ -288,7 +301,8 @@ def testYolo(src_, types_):
     salida["lista"] = lista
     return salida
 
-def _RSILVA_20220330_visualize_Dominant_colors__(cluster, C_centroids):
+def _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,cluster, C_centroids):
+    print(f"_RSILVA_20220330_visualize_Dominant_colors__:path_:{path_}:file_{file_}:cluster:{cluster}")
     salida = {}
 
     C_labels = np.arange(0, len(np.unique(cluster.labels_)) + 1)
@@ -302,7 +316,7 @@ def _RSILVA_20220330_visualize_Dominant_colors__(cluster, C_centroids):
     start = 0
 
     string_COLOR = ""
-
+    string_COLOR_PCT = ""
     pos = 0
     for (percent, color) in img_colors:
         color[0] = int(color[0])
@@ -312,12 +326,15 @@ def _RSILVA_20220330_visualize_Dominant_colors__(cluster, C_centroids):
         string_COLOR_tmp = str(int(color[0])) + "_" + str(int(color[1])) + "_" + str(int(color[2]))
         string_COLOR = string_COLOR + "_" + string_COLOR_tmp
 
+        string_COLOR_PCT_tmp = str( int(percent*100) ) + "_" + string_COLOR_tmp
+        string_COLOR_PCT = string_COLOR_PCT + "_pct_" + string_COLOR_PCT_tmp
+
         salida["C" + str(pos) + "R"] = color[0]
         salida["C" + str(pos) + "G"] = color[1]
         salida["C" + str(pos) + "B"] = color[2]
 
         if(pos==3):
-            print(f"pos:{pos}, ya compa saulcito:" +string_COLOR )
+            print(f"pos:{pos}, ya compa saulcito:" +string_COLOR_PCT )
 
         #print(color, "{:0f}%".format(percent * 100))
         #print(color, "{:0f}%".format(percent * 100))
@@ -328,17 +345,16 @@ def _RSILVA_20220330_visualize_Dominant_colors__(cluster, C_centroids):
         start = end
         pos = pos + 1
 
-
-
-
     salida["rect_color"] = rect_color
     salida["string_COLOR"] = string_COLOR
+    salida["string_COLOR_PCT"] = string_COLOR_PCT
 
     return salida
 
 def __paleta__(path_, file_):
+    print(f"__paleta__:{file_}")
     __clusters__ = 3
-
+    out = {}
     # Load image
     path_file_ = f"{path_}{file_}"
     src_image = cv2.imread(path_file_)
@@ -349,20 +365,28 @@ def __paleta__(path_, file_):
 
     # Display dominant colors Present in the image
     KM_cluster = KMeans(n_clusters=__clusters__).fit(reshape_img)
-    visualize_color_salida = _RSILVA_20220330_visualize_Dominant_colors__(KM_cluster, KM_cluster.cluster_centers_)
+    visualize_color_salida = _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,KM_cluster, KM_cluster.cluster_centers_)
 
     visualize_color_img = visualize_color_salida["rect_color"]
     visualize_color_img = cv2.cvtColor(visualize_color_img, cv2.COLOR_RGB2BGR)
     string_COLOR = visualize_color_salida["string_COLOR"]
 
-    print(f"string_COLOR:{string_COLOR}")
+    string_COLOR_PCT = visualize_color_salida["string_COLOR_PCT"]
+
+
+    out["COLOR1"] = "palquelee"
+    out["COLOR2"] = "palquelee"
+    out["COLOR3"] = "palquelee"
+
+    #print(f"string_COLOR_PCT:{string_COLOR_PCT}")
     ruta_OUT = f'{path_}{file_}_PALETA_.jpg'
-    #print(f"ABORTADO:imwrite:visualize_color_img{string_COLOR}")
-    #cv2.imwrite(ruta_OUT, visualize_color_img)
+    print(f"ABORTADO:imwrite:visualize_color_img:ruta:{ruta_OUT}:string_COLOR{string_COLOR}")
+    cv2.imwrite(ruta_OUT, visualize_color_img)
+    out["OUT"] = "test" 
+    return out
 
-
-testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])
-#testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle'])
+#testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
+testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 """
