@@ -191,7 +191,6 @@ def testYolo(src_, types_):
             elemento["y2"] = y + h
             elemento["w"] = w
             elemento["h"] = h
-            elemento["marca"] = "EN_DESARROLLO"
 
             #altura_mitad = int(h/2)
             half_altura = int(h/20)
@@ -200,12 +199,9 @@ def testYolo(src_, types_):
             elemento["clase_H"] = clase_H
 
             #elemento["clase_CURVA"] = "CV_1_CV1" #detector de tapas
-            elemento["clase_GRUPO_PALETA_2"] = "P_000000" + "invoquepaleta" #2
-            elemento["clase_GRUPO_PALETA_3"] = "P_000000" + "invoquepaleta"#3
-            elemento["clase_GRUPO_PALETA_4"] = "P_000000" + "invoquepaleta" #4
+
             elemento["clase_VOLUMEN"] = "V_" + str( (h*w)/20 )
             elemento["altura_media"] = half_altura
-            elemento["EAN"] = "NULL"
 
             #lista["elemento_"+ str(i)] = elemento
             lista.append(elemento)
@@ -247,14 +243,15 @@ def testYolo(src_, types_):
                 #print(f"ABORTADO:SUB-IMAGEN:  cv2.imwrite")
                 cv2.imwrite(img_sub_path + img_sub_name, img_sub)
                 salida_PALETA = __paleta__(img_sub_path, img_sub_name)
-                print(f"esta es la salida de Paleta:{salida_PALETA['OUT']}")
-                print(f"esta es la salida de COLORES:{salida_PALETA['OUT']}")
-                print(f"esta es la salida de COLORES:{salida_PALETA['OUT']}")
-                lista["palquelee"] = "palquelee"
+                print(f"salida_PALETA:{salida_PALETA}")
+                print(f"esta es la salida de COLORES:C_1_R:{salida_PALETA['C_1_R']}")
+                #elemento["palquelee"] = "palquelee"
 
-                lista["COLOR1"] = "COLOR1"
-                lista["COLOR2"] = "COLOR2"
-                lista["COLOR3"] = "COLOR3"
+                elemento["C_1_R"] = salida_PALETA['C_1_R']
+                #elemento["COLOR1_G"] = salida_PALETA['OUT']
+                #elemento["COLOR1_B"] = salida_PALETA['OUT']
+                #elemento["COLOR2"] = salida_PALETA['OUT']
+                #elemento["COLOR3"] = salida_PALETA['OUT']
 
 
 
@@ -329,9 +326,9 @@ def _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,cluster, C_centroid
         string_COLOR_PCT_tmp = str( int(percent*100) ) + "_" + string_COLOR_tmp
         string_COLOR_PCT = string_COLOR_PCT + "_pct_" + string_COLOR_PCT_tmp
 
-        salida["C" + str(pos) + "R"] = color[0]
-        salida["C" + str(pos) + "G"] = color[1]
-        salida["C" + str(pos) + "B"] = color[2]
+        salida["C" + str(pos+1) + "R"] = str(int(color[0]))
+        salida["C" + str(pos+1) + "G"] = str(int(color[1]))
+        salida["C" + str(pos+1) + "B"] = str(int(color[2]))
 
         if(pos==3):
             print(f"pos:{pos}, ya compa saulcito:" +string_COLOR_PCT )
@@ -374,9 +371,11 @@ def __paleta__(path_, file_):
     string_COLOR_PCT = visualize_color_salida["string_COLOR_PCT"]
 
 
-    out["COLOR1"] = "palquelee"
-    out["COLOR2"] = "palquelee"
-    out["COLOR3"] = "palquelee"
+    out["C_1_R"] = visualize_color_salida["C_1_R"]
+    out["C_1_G"] = visualize_color_salida["C_1_G"]
+    out["C_1_B"] = visualize_color_salida["C_1_B"]
+    #out["COLOR2"] = "palquelee"
+    #out["COLOR3"] = "palquelee"
 
     #print(f"string_COLOR_PCT:{string_COLOR_PCT}")
     ruta_OUT = f'{path_}{file_}_PALETA_.jpg'

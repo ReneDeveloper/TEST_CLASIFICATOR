@@ -8,14 +8,9 @@
         "y2": 187,
         "w": 69,
         "h": 173,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_596.85",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -26,14 +21,9 @@
         "y2": 197,
         "w": 75,
         "h": 178,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_667.5",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -44,14 +34,9 @@
         "y2": 182,
         "w": 61,
         "h": 149,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_454.45",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -62,14 +47,9 @@
         "y2": 196,
         "w": 69,
         "h": 158,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_545.1",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -80,14 +60,9 @@
         "y2": 192,
         "w": 66,
         "h": 152,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_501.6",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -98,14 +73,9 @@
         "y2": 191,
         "w": 70,
         "h": 150,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_525.0",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -116,14 +86,9 @@
         "y2": 196,
         "w": 72,
         "h": 158,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_568.8",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -134,14 +99,9 @@
         "y2": 202,
         "w": 68,
         "h": 158,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_537.2",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -152,14 +112,9 @@
         "y2": 201,
         "w": 66,
         "h": 156,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_514.8",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -170,14 +125,9 @@
         "y2": 196,
         "w": 73,
         "h": 156,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_569.4",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -188,14 +138,9 @@
         "y2": 188,
         "w": 63,
         "h": 142,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_447.3",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -206,14 +151,9 @@
         "y2": 180,
         "w": 66,
         "h": 125,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_412.5",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -224,14 +164,9 @@
         "y2": 200,
         "w": 50,
         "h": 138,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_345.0",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -242,14 +177,9 @@
         "y2": 205,
         "w": 63,
         "h": 145,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_456.75",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -260,14 +190,9 @@
         "y2": 418,
         "w": 74,
         "h": 146,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_540.2",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -278,14 +203,9 @@
         "y2": 416,
         "w": 63,
         "h": 141,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_444.15",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -296,14 +216,9 @@
         "y2": 407,
         "w": 60,
         "h": 124,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_372.0",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -314,14 +229,9 @@
         "y2": 412,
         "w": 56,
         "h": 130,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_364.0",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -332,14 +242,9 @@
         "y2": 414,
         "w": 54,
         "h": 133,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_359.1",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -350,14 +255,9 @@
         "y2": 414,
         "w": 62,
         "h": 131,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_406.1",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -368,14 +268,9 @@
         "y2": 416,
         "w": 59,
         "h": 139,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_410.05",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -386,14 +281,9 @@
         "y2": 416,
         "w": 61,
         "h": 136,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_414.8",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -404,14 +294,9 @@
         "y2": 418,
         "w": 62,
         "h": 144,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_446.4",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -422,14 +307,9 @@
         "y2": 425,
         "w": 55,
         "h": 143,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_393.25",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -440,14 +320,9 @@
         "y2": 517,
         "w": 35,
         "h": 51,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H2",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_89.25",
-        "altura_media": 2,
-        "EAN": "NULL"
+        "altura_media": 2
     },
     {
         "tipo": "bottle",
@@ -458,14 +333,9 @@
         "y2": 641,
         "w": 42,
         "h": 179,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_375.9",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -476,14 +346,9 @@
         "y2": 629,
         "w": 49,
         "h": 153,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_374.85",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     },
     {
         "tipo": "bottle",
@@ -494,14 +359,9 @@
         "y2": 637,
         "w": 70,
         "h": 162,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_567.0",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -512,14 +372,9 @@
         "y2": 643,
         "w": 76,
         "h": 173,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_657.4",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -530,14 +385,9 @@
         "y2": 633,
         "w": 72,
         "h": 166,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_597.6",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -548,14 +398,9 @@
         "y2": 645,
         "w": 74,
         "h": 176,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_651.2",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -566,14 +411,9 @@
         "y2": 638,
         "w": 54,
         "h": 167,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_450.9",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -584,14 +424,9 @@
         "y2": 659,
         "w": 71,
         "h": 188,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H9",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_667.4",
-        "altura_media": 9,
-        "EAN": "NULL"
+        "altura_media": 9
     },
     {
         "tipo": "bottle",
@@ -602,14 +437,9 @@
         "y2": 660,
         "w": 71,
         "h": 188,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H9",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_667.4",
-        "altura_media": 9,
-        "EAN": "NULL"
+        "altura_media": 9
     },
     {
         "tipo": "bottle",
@@ -620,14 +450,9 @@
         "y2": 654,
         "w": 70,
         "h": 175,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_612.5",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -638,14 +463,9 @@
         "y2": 654,
         "w": 74,
         "h": 177,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_654.9",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -656,14 +476,9 @@
         "y2": 656,
         "w": 69,
         "h": 182,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H9",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_627.9",
-        "altura_media": 9,
-        "EAN": "NULL"
+        "altura_media": 9
     },
     {
         "tipo": "bottle",
@@ -674,14 +489,9 @@
         "y2": 654,
         "w": 77,
         "h": 174,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_669.9",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -692,14 +502,9 @@
         "y2": 651,
         "w": 73,
         "h": 175,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H8",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_638.75",
-        "altura_media": 8,
-        "EAN": "NULL"
+        "altura_media": 8
     },
     {
         "tipo": "bottle",
@@ -710,14 +515,9 @@
         "y2": 805,
         "w": 51,
         "h": 116,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H5",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_295.8",
-        "altura_media": 5,
-        "EAN": "NULL"
+        "altura_media": 5
     },
     {
         "tipo": "bottle",
@@ -728,14 +528,9 @@
         "y2": 809,
         "w": 72,
         "h": 120,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_432.0",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -746,14 +541,9 @@
         "y2": 802,
         "w": 73,
         "h": 112,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H5",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_408.8",
-        "altura_media": 5,
-        "EAN": "NULL"
+        "altura_media": 5
     },
     {
         "tipo": "bottle",
@@ -764,14 +554,9 @@
         "y2": 807,
         "w": 73,
         "h": 122,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H6",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_445.3",
-        "altura_media": 6,
-        "EAN": "NULL"
+        "altura_media": 6
     },
     {
         "tipo": "bottle",
@@ -782,13 +567,8 @@
         "y2": 831,
         "w": 53,
         "h": 153,
-        "marca": "EN_DESARROLLO",
         "clase_H": "H7",
-        "clase_GRUPO_PALETA_2": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_3": "P_000000invoquepaleta",
-        "clase_GRUPO_PALETA_4": "P_000000invoquepaleta",
         "clase_VOLUMEN": "V_405.45",
-        "altura_media": 7,
-        "EAN": "NULL"
+        "altura_media": 7
     }
 ]
