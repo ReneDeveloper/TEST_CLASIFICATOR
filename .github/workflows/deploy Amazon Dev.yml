@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-    -  '!main'   # excludes master
+    -  'testing'   # excludes master
 name: deploy Amazon Dev
 jobs:
   deploy:
