@@ -426,8 +426,6 @@ def __paleta__(path_, file_):
         print(f"Exception in imwrite - PROBABLEMENTE YA EXISTE :ruta_OUT: {ruta_OUT}")
         print(f"Exception in imwrite - PROBABLEMENTE YA EXISTE :ex: {ex}")
 
-
-
     out["OUT"] = "test" 
     return out
 
@@ -447,6 +445,6 @@ testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
 
 python DEMO_WINUX_PALETA_20220517.py
 
-
+C:/RSILVA_BOT_BASICS/ETL_CADEM/VISION_ARTIFICIAL/DEMO_OBJETOS/SUB_IMAGENES
 
 """
