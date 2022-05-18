@@ -192,6 +192,12 @@ def testYolo(src_, types_):
             elemento["w"] = w
             elemento["h"] = h
 
+
+            #failures:
+            if elemento["y1"]<0:
+                elemento["y1"]=0
+
+
             #altura_mitad = int(h/2)
             half_altura = int(h/20)
 
@@ -437,8 +443,8 @@ def __paleta__(path_, file_):
     out["OUT"] = "test" 
     return out
 
-#testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
-testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
+#testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 """
