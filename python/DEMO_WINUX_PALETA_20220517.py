@@ -438,7 +438,7 @@ def __paleta__(path_, file_):
     return out
 
 #testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
-testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 """
@@ -447,4 +447,12 @@ testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coc
         print("tamos en linus compare")
     else:
         print("tamos en windors compare")
+
+
+
+
+python DEMO_WINUX_PALETA_20220517.py
+
+
+
 """
