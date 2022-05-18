@@ -42,7 +42,7 @@ def testYolo(src_, types_):
         img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
         img_ORIGINAL = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     else:
-        path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
+        path_ = "C:/documentos/2022/Rene/TEST_CLASIFICATOR/python/"
         img = None
         img = cv2.imread(f'{path_}{src_}')
         #print(f"tamos en windors compare:{src_}")
@@ -52,7 +52,7 @@ def testYolo(src_, types_):
     #img = cv2.imread(f'{path_}{src_}')
 
     # Load Yolo
-    yolo_weight = "C:/RSILVA_REPOS/yolov3.weights"
+    yolo_weight = "C:/documentos/2022/Rene/yolov3.weights"
     yolo_config = "yolov3.cfg"
     coco_labels = "coco.names"
     net = cv2.dnn.readNet(yolo_weight, yolo_config)
@@ -191,6 +191,12 @@ def testYolo(src_, types_):
             elemento["y2"] = y + h
             elemento["w"] = w
             elemento["h"] = h
+
+
+            #failures:
+            if elemento["y1"]<0:
+                elemento["y1"]=0
+
 
             #altura_mitad = int(h/2)
             half_altura = int(h/20)
@@ -437,8 +443,8 @@ def __paleta__(path_, file_):
     out["OUT"] = "test" 
     return out
 
-#testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
-testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
+#testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 """
@@ -447,4 +453,12 @@ testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coc
         print("tamos en linus compare")
     else:
         print("tamos en windors compare")
+
+
+
+
+python DEMO_WINUX_PALETA_20220517.py
+
+
+
 """
