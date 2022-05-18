@@ -39,3 +39,8 @@ seaborn>=0.11.0
 # roboflow
 thop  # FLOPs computation
 
+
+# TEST_CLASIFICATOR --------------------------------------
+sklearn>=0.0
+boto3==1.20.20
+#opencv-python                 4.5.5.64
