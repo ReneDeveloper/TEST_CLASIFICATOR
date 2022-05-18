@@ -37,8 +37,9 @@ jobs:
         scp_source: ./*
         scp_target: ~/
         before_script: | 
-          echo "before"
+          rm -rf ~/clasificator
+          mkdir -p ~/clasificator
         after_script: |          
-          pip install -r ~/requirements.txt
+          pip install --ignore-installed  --no-cache-dir -r ~/clasificator/requirements.txt  
           
    

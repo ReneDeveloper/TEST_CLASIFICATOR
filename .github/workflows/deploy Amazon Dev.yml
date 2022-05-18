@@ -35,10 +35,10 @@ jobs:
         username: "ubuntu"
         private_key: ${{ secrets.PRIVATE_KEY }}
         scp_source: ./*
-        scp_target: ~/
+        scp_target: ~/clasificator
         before_script: | 
-          echo "before"
+          rm -rf ~/clasificator
+          mkdir -p ~/clasificator
         after_script: |          
-          pip install -r ~/requirements.txt
-          
+          pip install --ignore-installed  --no-cache-dir -r ~/clasificator/requirements.txt           
    
