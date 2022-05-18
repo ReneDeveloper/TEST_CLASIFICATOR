@@ -242,23 +242,38 @@ def testYolo(src_, types_):
             try:
                 #print(f"ABORTADO:SUB-IMAGEN:  cv2.imwrite")
                 cv2.imwrite(img_sub_path + img_sub_name, img_sub)
+            except Exception as ex:
+                print(f"Exception in imwrite - PROBABLEMENTE YA EXISTE : {ex}")
+
+
+
+            try:
+                print(f"ANTES DE __paleta__:")
                 salida_PALETA = __paleta__(img_sub_path, img_sub_name)
+                print(f"DESPUES DE __paleta__:")
                 print(f"salida_PALETA:{salida_PALETA}")
                 print(f"esta es la salida de COLORES:C_1_R:{salida_PALETA['C_1_R']}")
-                #elemento["palquelee"] = "palquelee"
 
+                elemento["C_1_P"] = salida_PALETA['C_1_P']
                 elemento["C_1_R"] = salida_PALETA['C_1_R']
-                #elemento["COLOR1_G"] = salida_PALETA['OUT']
-                #elemento["COLOR1_B"] = salida_PALETA['OUT']
-                #elemento["COLOR2"] = salida_PALETA['OUT']
-                #elemento["COLOR3"] = salida_PALETA['OUT']
+                elemento["C_1_G"] = salida_PALETA['C_1_G']
+                elemento["C_1_B"] = salida_PALETA['C_1_B']
+
+                elemento["C_2_P"] = salida_PALETA['C_2_P']
+                elemento["C_2_R"] = salida_PALETA['C_2_R']
+                elemento["C_2_G"] = salida_PALETA['C_2_G']
+                elemento["C_2_B"] = salida_PALETA['C_2_B']
+
+                elemento["C_3_P"] = salida_PALETA['C_3_P']
+                elemento["C_3_R"] = salida_PALETA['C_3_R']
+                elemento["C_3_G"] = salida_PALETA['C_3_G']
+                elemento["C_3_B"] = salida_PALETA['C_3_B']
 
 
 
 
             except Exception as ex:
                 print(f"Exception in imwrite -  : {ex}")
-
 
 
     if os.name != 'nt':
@@ -326,9 +341,20 @@ def _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,cluster, C_centroid
         string_COLOR_PCT_tmp = str( int(percent*100) ) + "_" + string_COLOR_tmp
         string_COLOR_PCT = string_COLOR_PCT + "_pct_" + string_COLOR_PCT_tmp
 
-        salida["C" + str(pos+1) + "R"] = str(int(color[0]))
-        salida["C" + str(pos+1) + "G"] = str(int(color[1]))
-        salida["C" + str(pos+1) + "B"] = str(int(color[2]))
+
+        salida["C_" + str(pos+1) + "_P"] = str(int(percent*100)) #PERCENT #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_R"] = str(int(color[0]))#FIXED THE '_' #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_G"] = str(int(color[1]))#FIXED THE '_' #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_B"] = str(int(color[2]))#FIXED THE '_' #RSILVA_20220517
+
+        salida["C_" + str(pos+1) + "_P"] = int(percent*100) #PERCENT #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_R"] = int(color[0])#FIXED THE '_' #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_G"] = int(color[1])#FIXED THE '_' #RSILVA_20220517
+        salida["C_" + str(pos+1) + "_B"] = int(color[2])#FIXED THE '_' #RSILVA_20220517
+
+
+
+
 
         if(pos==3):
             print(f"pos:{pos}, ya compa saulcito:" +string_COLOR_PCT )
@@ -370,17 +396,44 @@ def __paleta__(path_, file_):
 
     string_COLOR_PCT = visualize_color_salida["string_COLOR_PCT"]
 
-
+    print(f"ANTES de leer: visualize_color_salida[C_1_R]:EN:{visualize_color_salida}")
+    out["C_1_P"] = visualize_color_salida["C_1_P"]
     out["C_1_R"] = visualize_color_salida["C_1_R"]
     out["C_1_G"] = visualize_color_salida["C_1_G"]
     out["C_1_B"] = visualize_color_salida["C_1_B"]
+
+    out["C_2_P"] = visualize_color_salida["C_2_P"]
+    out["C_2_R"] = visualize_color_salida["C_2_R"]
+    out["C_2_G"] = visualize_color_salida["C_2_G"]
+    out["C_2_B"] = visualize_color_salida["C_2_B"]
+
+    out["C_3_P"] = visualize_color_salida["C_3_P"]
+    out["C_3_R"] = visualize_color_salida["C_3_R"]
+    out["C_3_G"] = visualize_color_salida["C_3_G"]
+    out["C_3_B"] = visualize_color_salida["C_3_B"]
+
+    print("DESPUES de leer: visualize_color_salida[C_1_R]")
+    #out["C_1_G"] = visualize_color_salida["C_1_G"]
+    #out["C_1_B"] = visualize_color_salida["C_1_B"]
     #out["COLOR2"] = "palquelee"
     #out["COLOR3"] = "palquelee"
 
     #print(f"string_COLOR_PCT:{string_COLOR_PCT}")
     ruta_OUT = f'{path_}{file_}_PALETA_.jpg'
-    print(f"ABORTADO:imwrite:visualize_color_img:ruta:{ruta_OUT}:string_COLOR{string_COLOR}")
-    cv2.imwrite(ruta_OUT, visualize_color_img)
+
+
+    
+    
+
+
+    try:
+        print(f"ESCRIBIENDO_PALETA_OUT:SUB-IMAGEN:__paleta__:  cv2.imwrite")
+        cv2.imwrite(ruta_OUT, visualize_color_img)
+    except Exception as ex:
+        print(f"Exception in imwrite - PROBABLEMENTE YA EXISTE : {ex}")
+
+
+
     out["OUT"] = "test" 
     return out
 
