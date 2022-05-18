@@ -39,6 +39,6 @@ jobs:
         before_script: | 
           echo "before"
         after_script: |          
-          echo "after"
+          pip install -r ~/requirements.txt
           
    
