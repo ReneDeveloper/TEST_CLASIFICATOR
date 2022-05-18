@@ -5,7 +5,7 @@ on:
 name: deploy Amazon Dev
 jobs:
   deploy:
-    name: Amazon deploy odoo14 addons
+    name: Amazon deploy DEV_Rene
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

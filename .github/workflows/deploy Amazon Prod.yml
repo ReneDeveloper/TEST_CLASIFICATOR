@@ -5,7 +5,7 @@ on:
 name: deploy Amazon Prod
 jobs:
   deploy:
-    name: Amazon deploy odoo14 addons
+    name: Amazon deploy PROD_RENE
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
