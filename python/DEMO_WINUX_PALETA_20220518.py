@@ -8,8 +8,6 @@ import os
 
 def testYolo(src_, types_):
     # Loading image
-
-
     img = None
 
     #img_ORIGINAL = None
@@ -153,17 +151,23 @@ def testYolo(src_, types_):
 
     listaAlturasMedias = {}
 
+    repos = 0
+
     # Draw bounding box with text for each object
     font = cv2.FONT_HERSHEY_DUPLEX
     for i in range(len(boxes)):
         if i in indexes:
             x, y, w, h = boxes[i]
+            if y<0:
+                y=0
+            if x<0:
+                x=0
 
-
-            #si tiene una guatones muy grande
-            if w>100:
+            #si tiene una guatonés muy grande
+            if w>110:#RSILVA_20220518   if w>100: -->if w>110: -->NINGUNA BOTELLA DEBERIA SER MAYOR AL 10% DE LA FOTO
+                #fixed 124 para botellas, aparecerá otro para latas o para elementos mas gordos
                 continue
-
+            repos = repos + 1
             label = str(classes[class_ids[i]])
             confidence_label = int(confidences[i] * 100)
             #color = colors[i]
@@ -172,10 +176,11 @@ def testYolo(src_, types_):
             elemento = {}
             elemento["tipo"] = label
 
-            if not label in types_:
-                continue
+            #if not label in types_:
+            #    continue
 
             elemento["id_interno"] = str(i)
+            elemento["pos"] = str(repos)
             elemento["x1"] = x
             elemento["x2"] = x + w
             elemento["y1"] = y
@@ -184,9 +189,6 @@ def testYolo(src_, types_):
             elemento["h"] = h
             elemento["JS_TABLE"] = f"'{i}', 'ANCHO:{w}', '({w})', 1, 1 ,'{label}'"
 
-            #failures:
-            if elemento["y1"]<0:
-                elemento["y1"]=0
 
 
             #altura_mitad = int(h/2)
@@ -349,10 +351,6 @@ def _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,cluster, C_centroid
         salida["C_" + str(pos+1) + "_G"] = int(color[1])#FIXED THE '_' #RSILVA_20220517
         salida["C_" + str(pos+1) + "_B"] = int(color[2])#FIXED THE '_' #RSILVA_20220517
 
-
-
-
-
         if(pos==3):
             print(f"pos:{pos}, ya compa saulcito:" +string_COLOR_PCT )
 
@@ -429,8 +427,11 @@ def __paleta__(path_, file_):
     out["OUT"] = "test" 
     return out
 
-testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
+#testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
 #testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+#testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+
 
 
 """

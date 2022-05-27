@@ -1,4 +1,11 @@
-[
+import pandas as pd
+import numpy as np
+import json
+
+from sklearn.cluster import KMeans
+
+
+p = [
     {
         "tipo": "bottle",
         "id_interno": "2",
@@ -1674,3 +1681,130 @@
         "C_3_B": 50
     }
 ]
+
+
+
+def leeJSON(path_, file_):
+    completePath = f"{path_}{file_}"
+    df = pd.read_json(completePath)
+    return df 
+
+def clasificador(cdato, argcalificador,ncluster):
+    # cdato es el set de datos original debe contener el campo id_interno
+    # argcalificador # ese el conjunto de campos por el que se nos van a clasificar los grupos, deben ser valores numericos
+    # ncluster  la cantidad de cluster a utilizar
+    #ejemplos:
+    ccluster = np.array(cdato[argcalificador])
+    kmeans = KMeans(n_clusters=ncluster).fit(ccluster)
+    labeles = kmeans.labels_
+    df_labels = pd.DataFrame(labeles, columns=['GrupoPaleta'])
+    Salida = pd.concat([cdato, df_labels], axis=1)
+    return Salida
+
+
+def generaPaleta():
+
+    print ("inicia Generador de Paletas")
+    carpeta ="C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
+    #carpeta ="C:\\documentos\\2022\\Rene\\TEST_CLASIFICATOR\\python\\"
+    Archivo ="OUT_22032022115408_FOTO_SALA_BUENA.jpg.json"
+
+
+    ArchivoSalida= f"{Archivo.split('.')[0]}_CONPALETA.json"
+
+
+    Datos = leeJSON(carpeta,Archivo)
+
+    ncluster  =4
+    #camposclasificadores = ["R_1","G_1","B_1","R_2","G_2","B_2","R_3","G_3","B_3"]
+    camposclasificadores = ["C_1_R","C_1_G","C_1_B","C_2_R","C_2_G","C_2_B","C_3_R","C_3_G","C_3_B"]
+    csalida =clasificador(Datos,camposclasificadores,ncluster)
+    #print (csalida)
+    print( csalida.groupby("GrupoPaleta").size().reset_index(name = "Cantidad"))
+
+
+    resultado = csalida.to_dict('records')
+
+    rutasalida= carpeta + ArchivoSalida
+
+    with open(rutasalida, 'w') as file:
+         json.dump(resultado, file, indent = 4)
+
+    print (f"Finaliza Generador de Paletas OK\n{rutasalida}")
+
+
+def generaPaletaFromList(list_of_results):
+
+    pd_ = pd.DataFrame(list_of_results)
+    print ("inicia Generador de Paletas from list")
+    #carpeta ="C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
+    #carpeta ="C:/Z_BORRABLE_laragon/www/FACE_DEMO/botellas/22032022115408_FOTO_SALA_BUENA/aaa"
+    #C:\\\\\
+    #carpeta ="C:\\documentos\\2022\\Rene\\TEST_CLASIFICATOR\\python\\"
+    #Archivo ="OUT_22032022115408_FOTO_SALA_BUENA.jpg.json"
+
+
+    #ArchivoSalida= f"{Archivo.split('.')[0]}_CONPALETA.json"
+
+    Datos = pd_
+    #Datos = leeJSON(carpeta,Archivo)
+
+    ncluster  =4 #dinamico
+    #camposclasificadores = ["R_1","G_1","B_1","R_2","G_2","B_2","R_3","G_3","B_3"]
+    camposclasificadores = ["C_1_R","C_1_G","C_1_B","C_2_R","C_2_G","C_2_B","C_3_R","C_3_G","C_3_B"]
+    csalida =clasificador(Datos,camposclasificadores,ncluster)
+    #print (csalida)
+    print( csalida.groupby("GrupoPaleta").size().reset_index(name = "Cantidad"))
+
+
+    resultado = csalida.to_dict('records')
+
+    #rutasalida= carpeta + ArchivoSalida
+
+    #with open(rutasalida, 'w') as file:
+    #     json.dump(resultado, file, indent = 4)
+
+    print (f"--------------------------------------------")
+    print (f"Finaliza Generador de Paletas OK")
+    print (f"----------------------------------------------")
+    print (f"{resultado}")
+    print (f"----------------------------------------------")
+
+    return resultado
+#generaPaletaFromList: Obtain the same JSON form as the input, only adding a new field called: GrupoPaleta
+def generaPaletaFromList_CLEAN_RSILVA_20220519(list_of_results):
+
+    pd_ = pd.DataFrame(list_of_results)
+    print ("inicia Generador de Paletas from list")
+
+
+    #ArchivoSalida= f"{Archivo.split('.')[0]}_CONPALETA.json"
+
+    Datos = pd_
+    #Datos = leeJSON(carpeta,Archivo)
+
+    ncluster  =4 #dinamico
+    #camposclasificadores = ["R_1","G_1","B_1","R_2","G_2","B_2","R_3","G_3","B_3"]
+    camposclasificadores = ["C_1_R","C_1_G","C_1_B","C_2_R","C_2_G","C_2_B","C_3_R","C_3_G","C_3_B"]
+    csalida =clasificador(Datos,camposclasificadores,ncluster)
+    #print (csalida)
+    print( csalida.groupby("GrupoPaleta").size().reset_index(name = "Cantidad"))
+
+
+    resultado = csalida.to_dict('records')
+
+    #rutasalida= carpeta + ArchivoSalida
+
+    #with open(rutasalida, 'w') as file:
+    #     json.dump(resultado, file, indent = 4)
+
+    print (f"--------------------------------------------")
+    print (f"Finaliza Generador de Paletas OK")
+    print (f"----------------------------------------------")
+    print (f"{resultado}")
+    print (f"----------------------------------------------")
+
+    return resultado
+
+
+generaPaletaFromList(p)
