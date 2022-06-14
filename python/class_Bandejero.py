@@ -3,6 +3,15 @@ import numpy as np
 import json
 
 from sklearn.cluster import KMeans
+from class_Agent import Agent
+
+
+class Bandejero:
+    def __init__(self, parameters_):
+        self.parameters = parameters_
+
+    def execute_Task(self,taskObject_):
+        return False
 
 def leeJSON(path_, file_):
     completePath = f"{path_}{file_}"
@@ -73,7 +82,7 @@ def ejecuta_2_generaBandeja(nombre_foto):
 
     ArchivoSalida= f"{Archivo.split('.')[0]}_Y_CANTIDAD.json"
 
-    Datos = LeeJSON(carpeta,Archivo)
+    Datos = leeJSON(carpeta,Archivo)
 
     CampoFila = "Fila"
 
@@ -88,6 +97,8 @@ def ejecuta_2_generaBandeja(nombre_foto):
 
     print (f"Finaliza Generador de bandejas OK\n{rutasalida}")
 
+
+myAgent = Agent('mamífero', 7, 'Luis')
 
 
 ejecuta_1_generaFila("hola.jpg")
