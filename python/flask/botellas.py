@@ -1,6 +1,7 @@
 from re import T
 from flask import Flask
 from flask import request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ def index():
 
 @app.route('/proces')
 def proceso():
+    return render_template('IND_MAQUETA_008_BOT_ELLA.html')
     return 'Se desatara el proceso'
 
 @app.route('/param')

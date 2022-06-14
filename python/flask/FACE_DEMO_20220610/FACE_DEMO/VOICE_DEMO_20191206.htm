@@ -1,0 +1,84 @@
+
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Síntesis de Voz con JavaScript nativo</title>
+        <link rel="stylesheet" href="example.css">
+        <style>
+            button {
+                color: #ffffff;
+                background-color: #007fff;
+                border-color: #007fff;
+                display: block;
+                margin: 0 auto;
+                font-weight: normal;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                white-space: nowrap;
+                padding: 10px 18px;
+                font-size: 15px;
+                line-height: 1.42857143;
+                border-radius: 0;
+            }
+
+            input[type="range"] {
+                display: block;
+                margin: 0 0 0 30px;
+                padding: 2px;
+                width: 100%;
+            }
+            textarea {
+                display: block;
+                margin: 10px;
+                border: 1px solid #CCC;
+                padding: 10px;
+                width: 100%;
+                min-height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Síntesis de Voz con JavaScript nativo</h1>
+        </header>
+        <section>
+            <h3 id="msj">...</h3>
+            <div class="talk">
+                <legend>volumen:</legend>
+                <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
+                <legend>rate:</legend>
+                <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+                <legend>pitch:</legend>
+                <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+
+                <textarea id="text">Hola Mundo... Jon Snow Vive.</textarea>
+                <button onclick="talk()" id="talk">Hablar</button>
+            </div>
+        </section>
+        <script>
+            function talk() {
+
+                var msg = new SpeechSynthesisUtterance();
+                msg.lang = 'es-ES';
+                msg.text = document.getElementById("text").value;
+                msg.volume = 1; // 0 to 1
+                msg.rate = document.getElementById("rate").value; // 0.1 to 10
+                msg.pitch = document.getElementById("pitch").value; //0 to 2
+                msg.volume = document.getElementById("volume").value; //0 to 2
+                window.speechSynthesis.speak(msg);
+
+                msg.onstart = function (e) {
+                    document.getElementById("msj").innerHTML = 'Hablando...';
+                    console.log('Hablando...');
+                };
+
+                msg.onend = function (e) {
+                    document.getElementById("msj").innerHTML = 'Finalizado en ' + event.elapsedTime + ' segundos.';
+                    console.log('Finalizado en ' + event.elapsedTime + ' segundos.');
+                };
+            }
+        </script>
+    </body>
+</html>

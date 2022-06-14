@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BOT_ELLA</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			a {
+				color: #8ff;
+			}
+
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+		</style>
+	</head>
+	<body>
+
+<div id="info">Resultado TEST_CLASIFICATOR 0.1</div>
+<div id="SEL_"><SELECT onchange><OPTION value="-1">Seleccione</OPTION><OPTION>22032022115408_FOTO_SALA_BUENA</OPTION></SELECT></div>
+<!--
+		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank" rel="noopener">info</a>.</div>-->
+		<div id="container"></div>
+		<div id="menu">
+			<button id="table">BOTELLAS</button>
+			<button id="sphere">ESFERA</button>
+			<button id="helix">ORDEN</button>
+			<button id="grid">GRILLA</button>
+
+		</div>
+
+		<script type="module">
+
+
+//rgba(0,255,255,0.5)
+var sheet_2 = document.createElement('style')
+var estilo_ = ".elemento {width: 120px;height: 240px;box-shadow: 0px 0px 12px rgba(255,0,0,0.5);border: 1px solid rgba(127,255,255,0.25);font-family: Helvetica, sans-serif;text-align: center;line-height: normal;cursor: default;}";
+estilo_ = estilo_ + ".elemento:hover {box-shadow: 0px 0px 12px rgba(0,255,255,0.75);border: 1px solid rgba(127,255,255,0.75);}";
+estilo_ = estilo_ + ".elemento .number {position: absolute;	top: 20px;right: 20px;font-size: 8px;color: rgba(127,255,255,0.75);}";
+estilo_ = estilo_ + ".elemento .symbol {position: absolute;top: 40px;	left: 0px;right: 0px;font-size: 60px;font-weight: bold;color: rgba(255,255,255,0.75);text-shadow: 0 0 10px rgba(0,255,255,0.95);}"
+estilo_ = estilo_ + ".elemento .details {	position: absolute;	bottom: 15px;left: 0px;	right: 0px;font-size: 12px;	color: rgba(127,255,255,0.75);}"
+sheet_2.innerHTML = estilo_;
+
+
+document.body.appendChild(sheet_2);
+/*
+var sheetToBeRemoved = document.getElementById('styleSheetId');
+var sheetParent = sheetToBeRemoved.parentNode;
+sheetParent.removeChild(sheetToBeRemoved);
+*/
+
+			import * as THREE from '../build/three.module.js';
+
+			import { TWEEN } from './jsm/libs/tween.module.min.js';
+			import { TrackballControls } from './jsm/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
+
+
+
+
+
+var botellas = 
+
+
+
+
+[
+    {
+        "tipo": "bottle",
+        "id_interno": 2,
+        "pos": 1,
+        "x1": 82,
+        "x2": 181,
+        "y1": 6,
+        "y2": 224,
+        "w": 99,
+        "h": 218,
+        "JS_TABLE": "'2', 'ANCHO:99', '(99)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_1079.1",
+        "altura_media": 10,
+        "C_1_P": 15,
+        "C_1_R": 171,
+        "C_1_G": 218,
+        "C_1_B": 207,
+        "C_2_P": 18,
+        "C_2_R": 60,
+        "C_2_G": 177,
+        "C_2_B": 130,
+        "C_3_P": 65,
+        "C_3_R": 7,
+        "C_3_G": 147,
+        "C_3_B": 80,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 3,
+        "pos": 2,
+        "x1": 161,
+        "x2": 258,
+        "y1": 0,
+        "y2": 228,
+        "w": 97,
+        "h": 228,
+        "JS_TABLE": "'3', 'ANCHO:97', '(97)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1105.8",
+        "altura_media": 11,
+        "C_1_P": 14,
+        "C_1_R": 182,
+        "C_1_G": 226,
+        "C_1_B": 219,
+        "C_2_P": 15,
+        "C_2_R": 98,
+        "C_2_G": 196,
+        "C_2_B": 154,
+        "C_3_P": 70,
+        "C_3_R": 8,
+        "C_3_G": 163,
+        "C_3_B": 96,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 5,
+        "pos": 3,
+        "x1": 283,
+        "x2": 379,
+        "y1": 0,
+        "y2": 234,
+        "w": 96,
+        "h": 234,
+        "JS_TABLE": "'5', 'ANCHO:96', '(96)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1123.2",
+        "altura_media": 11,
+        "C_1_P": 14,
+        "C_1_R": 162,
+        "C_1_G": 222,
+        "C_1_B": 209,
+        "C_2_P": 26,
+        "C_2_R": 35,
+        "C_2_G": 179,
+        "C_2_B": 140,
+        "C_3_P": 59,
+        "C_3_R": 4,
+        "C_3_G": 156,
+        "C_3_B": 81,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 6,
+        "pos": 4,
+        "x1": 362,
+        "x2": 453,
+        "y1": 7,
+        "y2": 213,
+        "w": 91,
+        "h": 206,
+        "JS_TABLE": "'6', 'ANCHO:91', '(91)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_937.3",
+        "altura_media": 10,
+        "C_1_P": 11,
+        "C_1_R": 182,
+        "C_1_G": 240,
+        "C_1_B": 227,
+        "C_2_P": 20,
+        "C_2_R": 67,
+        "C_2_G": 202,
+        "C_2_B": 151,
+        "C_3_P": 67,
+        "C_3_R": 7,
+        "C_3_G": 155,
+        "C_3_B": 81,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 8,
+        "pos": 5,
+        "x1": 455,
+        "x2": 554,
+        "y1": 2,
+        "y2": 215,
+        "w": 99,
+        "h": 213,
+        "JS_TABLE": "'8', 'ANCHO:99', '(99)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_1054.35",
+        "altura_media": 10,
+        "C_1_P": 14,
+        "C_1_R": 173,
+        "C_1_G": 219,
+        "C_1_B": 206,
+        "C_2_P": 16,
+        "C_2_R": 67,
+        "C_2_G": 192,
+        "C_2_B": 140,
+        "C_3_P": 68,
+        "C_3_R": 6,
+        "C_3_G": 158,
+        "C_3_B": 82,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 10,
+        "pos": 6,
+        "x1": 541,
+        "x2": 641,
+        "y1": 2,
+        "y2": 217,
+        "w": 100,
+        "h": 215,
+        "JS_TABLE": "'10', 'ANCHO:100', '(100)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_1075.0",
+        "altura_media": 10,
+        "C_1_P": 16,
+        "C_1_R": 181,
+        "C_1_G": 222,
+        "C_1_B": 213,
+        "C_2_P": 19,
+        "C_2_R": 82,
+        "C_2_G": 194,
+        "C_2_B": 142,
+        "C_3_P": 64,
+        "C_3_R": 8,
+        "C_3_G": 159,
+        "C_3_B": 92,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 11,
+        "pos": 7,
+        "x1": 619,
+        "x2": 713,
+        "y1": 7,
+        "y2": 228,
+        "w": 94,
+        "h": 221,
+        "JS_TABLE": "'11', 'ANCHO:94', '(94)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1038.7",
+        "altura_media": 11,
+        "C_1_P": 16,
+        "C_1_R": 82,
+        "C_1_G": 194,
+        "C_1_B": 155,
+        "C_2_P": 17,
+        "C_2_R": 191,
+        "C_2_G": 228,
+        "C_2_B": 220,
+        "C_3_P": 65,
+        "C_3_R": 8,
+        "C_3_G": 165,
+        "C_3_B": 96,
+        "GrupoPaleta": 2
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 13,
+        "pos": 8,
+        "x1": 705,
+        "x2": 804,
+        "y1": 2,
+        "y2": 225,
+        "w": 99,
+        "h": 223,
+        "JS_TABLE": "'13', 'ANCHO:99', '(99)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1103.85",
+        "altura_media": 11,
+        "C_1_P": 15,
+        "C_1_R": 85,
+        "C_1_G": 194,
+        "C_1_B": 153,
+        "C_2_P": 16,
+        "C_2_R": 190,
+        "C_2_G": 223,
+        "C_2_B": 215,
+        "C_3_P": 68,
+        "C_3_R": 9,
+        "C_3_G": 158,
+        "C_3_B": 89,
+        "GrupoPaleta": 2
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 15,
+        "pos": 9,
+        "x1": 791,
+        "x2": 884,
+        "y1": 2,
+        "y2": 222,
+        "w": 93,
+        "h": 220,
+        "JS_TABLE": "'15', 'ANCHO:93', '(93)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1023.0",
+        "altura_media": 11,
+        "C_1_P": 18,
+        "C_1_R": 84,
+        "C_1_G": 193,
+        "C_1_B": 152,
+        "C_2_P": 19,
+        "C_2_R": 186,
+        "C_2_G": 220,
+        "C_2_B": 211,
+        "C_3_P": 62,
+        "C_3_R": 10,
+        "C_3_G": 158,
+        "C_3_B": 92,
+        "GrupoPaleta": 2
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 16,
+        "pos": 10,
+        "x1": 868,
+        "x2": 967,
+        "y1": 0,
+        "y2": 234,
+        "w": 99,
+        "h": 234,
+        "JS_TABLE": "'16', 'ANCHO:99', '(99)', 1, 1 ,'bottle'",
+        "clase_H": "H11",
+        "clase_VOLUMEN": "V_1158.3",
+        "altura_media": 11,
+        "C_1_P": 20,
+        "C_1_R": 73,
+        "C_1_G": 187,
+        "C_1_B": 144,
+        "C_2_P": 28,
+        "C_2_R": 204,
+        "C_2_G": 229,
+        "C_2_B": 225,
+        "C_3_P": 50,
+        "C_3_R": 7,
+        "C_3_G": 148,
+        "C_3_B": 77,
+        "GrupoPaleta": 2
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 71,
+        "pos": 11,
+        "x1": 86,
+        "x2": 179,
+        "y1": 279,
+        "y2": 467,
+        "w": 93,
+        "h": 188,
+        "JS_TABLE": "'71', 'ANCHO:93', '(93)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_874.2",
+        "altura_media": 9,
+        "C_1_P": 8,
+        "C_1_R": 197,
+        "C_1_G": 207,
+        "C_1_B": 204,
+        "C_2_P": 11,
+        "C_2_R": 106,
+        "C_2_G": 146,
+        "C_2_B": 129,
+        "C_3_P": 80,
+        "C_3_R": 15,
+        "C_3_G": 73,
+        "C_3_B": 49,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 72,
+        "pos": 12,
+        "x1": 162,
+        "x2": 253,
+        "y1": 277,
+        "y2": 477,
+        "w": 91,
+        "h": 200,
+        "JS_TABLE": "'72', 'ANCHO:91', '(91)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_910.0",
+        "altura_media": 10,
+        "C_1_P": 10,
+        "C_1_R": 112,
+        "C_1_G": 168,
+        "C_1_B": 156,
+        "C_2_P": 30,
+        "C_2_R": 4,
+        "C_2_G": 53,
+        "C_2_B": 32,
+        "C_3_P": 59,
+        "C_3_R": 15,
+        "C_3_G": 97,
+        "C_3_B": 61,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 74,
+        "pos": 13,
+        "x1": 248,
+        "x2": 336,
+        "y1": 275,
+        "y2": 481,
+        "w": 88,
+        "h": 206,
+        "JS_TABLE": "'74', 'ANCHO:88', '(88)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_906.4",
+        "altura_media": 10,
+        "C_1_P": 8,
+        "C_1_R": 167,
+        "C_1_G": 202,
+        "C_1_B": 191,
+        "C_2_P": 27,
+        "C_2_R": 33,
+        "C_2_G": 115,
+        "C_2_B": 70,
+        "C_3_P": 64,
+        "C_3_R": 5,
+        "C_3_G": 62,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 77,
+        "pos": 14,
+        "x1": 332,
+        "x2": 422,
+        "y1": 272,
+        "y2": 477,
+        "w": 90,
+        "h": 205,
+        "JS_TABLE": "'77', 'ANCHO:90', '(90)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_922.5",
+        "altura_media": 10,
+        "C_1_P": 7,
+        "C_1_R": 177,
+        "C_1_G": 208,
+        "C_1_B": 194,
+        "C_2_P": 23,
+        "C_2_R": 40,
+        "C_2_G": 118,
+        "C_2_B": 72,
+        "C_3_P": 69,
+        "C_3_R": 7,
+        "C_3_G": 66,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 83,
+        "pos": 15,
+        "x1": 412,
+        "x2": 501,
+        "y1": 265,
+        "y2": 471,
+        "w": 89,
+        "h": 206,
+        "JS_TABLE": "'83', 'ANCHO:89', '(89)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_916.7",
+        "altura_media": 10,
+        "C_1_P": 7,
+        "C_1_R": 194,
+        "C_1_G": 218,
+        "C_1_B": 214,
+        "C_2_P": 14,
+        "C_2_R": 76,
+        "C_2_G": 125,
+        "C_2_B": 92,
+        "C_3_P": 78,
+        "C_3_R": 11,
+        "C_3_G": 63,
+        "C_3_B": 38,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 86,
+        "pos": 16,
+        "x1": 486,
+        "x2": 573,
+        "y1": 270,
+        "y2": 466,
+        "w": 87,
+        "h": 196,
+        "JS_TABLE": "'86', 'ANCHO:87', '(87)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_852.6",
+        "altura_media": 9,
+        "C_1_P": 5,
+        "C_1_R": 223,
+        "C_1_G": 233,
+        "C_1_B": 232,
+        "C_2_P": 16,
+        "C_2_R": 69,
+        "C_2_G": 117,
+        "C_2_B": 93,
+        "C_3_P": 78,
+        "C_3_R": 12,
+        "C_3_G": 63,
+        "C_3_B": 40,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 94,
+        "pos": 17,
+        "x1": 636,
+        "x2": 721,
+        "y1": 265,
+        "y2": 457,
+        "w": 85,
+        "h": 192,
+        "JS_TABLE": "'94', 'ANCHO:85', '(85)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_816.0",
+        "altura_media": 9,
+        "C_1_P": 8,
+        "C_1_R": 133,
+        "C_1_G": 174,
+        "C_1_B": 139,
+        "C_2_P": 33,
+        "C_2_R": 23,
+        "C_2_G": 100,
+        "C_2_B": 61,
+        "C_3_P": 58,
+        "C_3_R": 6,
+        "C_3_G": 60,
+        "C_3_B": 33,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 101,
+        "pos": 18,
+        "x1": 796,
+        "x2": 878,
+        "y1": 265,
+        "y2": 451,
+        "w": 82,
+        "h": 186,
+        "JS_TABLE": "'101', 'ANCHO:82', '(82)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_762.6",
+        "altura_media": 9,
+        "C_1_P": 5,
+        "C_1_R": 138,
+        "C_1_G": 178,
+        "C_1_B": 166,
+        "C_2_P": 25,
+        "C_2_R": 29,
+        "C_2_G": 101,
+        "C_2_B": 67,
+        "C_3_P": 69,
+        "C_3_R": 7,
+        "C_3_G": 56,
+        "C_3_B": 31,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 102,
+        "pos": 19,
+        "x1": 865,
+        "x2": 951,
+        "y1": 260,
+        "y2": 453,
+        "w": 86,
+        "h": 193,
+        "JS_TABLE": "'102', 'ANCHO:86', '(86)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_829.9",
+        "altura_media": 9,
+        "C_1_P": 6,
+        "C_1_R": 147,
+        "C_1_G": 189,
+        "C_1_B": 180,
+        "C_2_P": 14,
+        "C_2_R": 69,
+        "C_2_G": 123,
+        "C_2_B": 80,
+        "C_3_P": 79,
+        "C_3_R": 11,
+        "C_3_G": 58,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 103,
+        "pos": 20,
+        "x1": 940,
+        "x2": 1022,
+        "y1": 257,
+        "y2": 458,
+        "w": 82,
+        "h": 201,
+        "JS_TABLE": "'103', 'ANCHO:82', '(82)', 1, 1 ,'bottle'",
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_824.1",
+        "altura_media": 10,
+        "C_1_P": 10,
+        "C_1_R": 143,
+        "C_1_G": 178,
+        "C_1_B": 151,
+        "C_2_P": 23,
+        "C_2_R": 41,
+        "C_2_G": 107,
+        "C_2_B": 74,
+        "C_3_P": 65,
+        "C_3_R": 13,
+        "C_3_G": 55,
+        "C_3_B": 35,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 242,
+        "pos": 21,
+        "x1": 860,
+        "x2": 943,
+        "y1": 496,
+        "y2": 684,
+        "w": 83,
+        "h": 188,
+        "JS_TABLE": "'242', 'ANCHO:83', '(83)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_780.2",
+        "altura_media": 9,
+        "C_1_P": 8,
+        "C_1_R": 147,
+        "C_1_G": 192,
+        "C_1_B": 172,
+        "C_2_P": 23,
+        "C_2_R": 29,
+        "C_2_G": 116,
+        "C_2_B": 74,
+        "C_3_P": 67,
+        "C_3_R": 7,
+        "C_3_G": 63,
+        "C_3_B": 35,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 338,
+        "pos": 22,
+        "x1": 27,
+        "x2": 129,
+        "y1": 724,
+        "y2": 903,
+        "w": 102,
+        "h": 179,
+        "JS_TABLE": "'338', 'ANCHO:102', '(102)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_912.9",
+        "altura_media": 8,
+        "C_1_P": 18,
+        "C_1_R": 200,
+        "C_1_G": 203,
+        "C_1_B": 197,
+        "C_2_P": 27,
+        "C_2_R": 140,
+        "C_2_G": 137,
+        "C_2_B": 110,
+        "C_3_P": 53,
+        "C_3_R": 40,
+        "C_3_G": 96,
+        "C_3_B": 71,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 360,
+        "pos": 23,
+        "x1": 249,
+        "x2": 303,
+        "y1": 2,
+        "y2": 199,
+        "w": 54,
+        "h": 197,
+        "JS_TABLE": "'360', 'ANCHO:54', '(54)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_531.9",
+        "altura_media": 9,
+        "C_1_P": 16,
+        "C_1_R": 155,
+        "C_1_G": 221,
+        "C_1_B": 207,
+        "C_2_P": 30,
+        "C_2_R": 27,
+        "C_2_G": 177,
+        "C_2_B": 133,
+        "C_3_P": 53,
+        "C_3_R": 5,
+        "C_3_G": 157,
+        "C_3_B": 76,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 373,
+        "pos": 24,
+        "x1": 569,
+        "x2": 648,
+        "y1": 265,
+        "y2": 451,
+        "w": 79,
+        "h": 186,
+        "JS_TABLE": "'373', 'ANCHO:79', '(79)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_734.7",
+        "altura_media": 9,
+        "C_1_P": 5,
+        "C_1_R": 190,
+        "C_1_G": 212,
+        "C_1_B": 209,
+        "C_2_P": 14,
+        "C_2_R": 59,
+        "C_2_G": 113,
+        "C_2_B": 88,
+        "C_3_P": 80,
+        "C_3_R": 11,
+        "C_3_G": 61,
+        "C_3_B": 39,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 375,
+        "pos": 25,
+        "x1": 722,
+        "x2": 800,
+        "y1": 268,
+        "y2": 443,
+        "w": 78,
+        "h": 175,
+        "JS_TABLE": "'375', 'ANCHO:78', '(78)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_682.5",
+        "altura_media": 8,
+        "C_1_P": 5,
+        "C_1_R": 135,
+        "C_1_G": 174,
+        "C_1_B": 157,
+        "C_2_P": 14,
+        "C_2_R": 53,
+        "C_2_G": 109,
+        "C_2_B": 78,
+        "C_3_P": 80,
+        "C_3_R": 8,
+        "C_3_G": 56,
+        "C_3_B": 32,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 385,
+        "pos": 26,
+        "x1": 865,
+        "x2": 899,
+        "y1": 490,
+        "y2": 546,
+        "w": 34,
+        "h": 56,
+        "JS_TABLE": "'385', 'ANCHO:34', '(34)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_95.2",
+        "altura_media": 2,
+        "C_1_P": 5,
+        "C_1_R": 22,
+        "C_1_G": 94,
+        "C_1_B": 60,
+        "C_2_P": 29,
+        "C_2_R": 7,
+        "C_2_G": 47,
+        "C_2_B": 25,
+        "C_3_P": 65,
+        "C_3_R": 5,
+        "C_3_G": 27,
+        "C_3_B": 16,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 386,
+        "pos": 27,
+        "x1": 201,
+        "x2": 235,
+        "y1": 510,
+        "y2": 565,
+        "w": 34,
+        "h": 55,
+        "JS_TABLE": "'386', 'ANCHO:34', '(34)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_93.5",
+        "altura_media": 2,
+        "C_1_P": 7,
+        "C_1_R": 84,
+        "C_1_G": 126,
+        "C_1_B": 109,
+        "C_2_P": 17,
+        "C_2_R": 24,
+        "C_2_G": 79,
+        "C_2_B": 56,
+        "C_3_P": 75,
+        "C_3_R": 7,
+        "C_3_G": 40,
+        "C_3_B": 26,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 387,
+        "pos": 28,
+        "x1": 274,
+        "x2": 310,
+        "y1": 505,
+        "y2": 570,
+        "w": 36,
+        "h": 65,
+        "JS_TABLE": "'387', 'ANCHO:36', '(36)', 1, 1 ,'bottle'",
+        "clase_H": "H3",
+        "clase_VOLUMEN": "V_117.0",
+        "altura_media": 3,
+        "C_1_P": 5,
+        "C_1_R": 85,
+        "C_1_G": 139,
+        "C_1_B": 117,
+        "C_2_P": 26,
+        "C_2_R": 16,
+        "C_2_G": 64,
+        "C_2_B": 43,
+        "C_3_P": 68,
+        "C_3_R": 4,
+        "C_3_G": 38,
+        "C_3_B": 22,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 388,
+        "pos": 29,
+        "x1": 343,
+        "x2": 382,
+        "y1": 505,
+        "y2": 567,
+        "w": 39,
+        "h": 62,
+        "JS_TABLE": "'388', 'ANCHO:39', '(39)', 1, 1 ,'bottle'",
+        "clase_H": "H3",
+        "clase_VOLUMEN": "V_120.9",
+        "altura_media": 3,
+        "C_1_P": 6,
+        "C_1_R": 57,
+        "C_1_G": 103,
+        "C_1_B": 82,
+        "C_2_P": 37,
+        "C_2_R": 10,
+        "C_2_G": 62,
+        "C_2_B": 37,
+        "C_3_P": 56,
+        "C_3_R": 4,
+        "C_3_G": 36,
+        "C_3_B": 21,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 390,
+        "pos": 30,
+        "x1": 417,
+        "x2": 455,
+        "y1": 506,
+        "y2": 564,
+        "w": 38,
+        "h": 58,
+        "JS_TABLE": "'390', 'ANCHO:38', '(38)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_110.2",
+        "altura_media": 2,
+        "C_1_P": 4,
+        "C_1_R": 100,
+        "C_1_G": 149,
+        "C_1_B": 135,
+        "C_2_P": 22,
+        "C_2_R": 17,
+        "C_2_G": 69,
+        "C_2_B": 47,
+        "C_3_P": 72,
+        "C_3_R": 6,
+        "C_3_G": 42,
+        "C_3_B": 28,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 402,
+        "pos": 31,
+        "x1": 943,
+        "x2": 1019,
+        "y1": 493,
+        "y2": 676,
+        "w": 76,
+        "h": 183,
+        "JS_TABLE": "'402', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_695.4",
+        "altura_media": 9,
+        "C_1_P": 5,
+        "C_1_R": 142,
+        "C_1_G": 174,
+        "C_1_B": 158,
+        "C_2_P": 34,
+        "C_2_R": 32,
+        "C_2_G": 102,
+        "C_2_B": 60,
+        "C_3_P": 59,
+        "C_3_R": 16,
+        "C_3_G": 56,
+        "C_3_B": 31,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 406,
+        "pos": 32,
+        "x1": 59,
+        "x2": 108,
+        "y1": 515,
+        "y2": 689,
+        "w": 49,
+        "h": 174,
+        "JS_TABLE": "'406', 'ANCHO:49', '(49)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_426.3",
+        "altura_media": 8,
+        "C_1_P": 21,
+        "C_1_R": 92,
+        "C_1_G": 107,
+        "C_1_B": 94,
+        "C_2_P": 26,
+        "C_2_R": 209,
+        "C_2_G": 202,
+        "C_2_B": 203,
+        "C_3_P": 51,
+        "C_3_R": 31,
+        "C_3_G": 48,
+        "C_3_B": 43,
+        "GrupoPaleta": 2
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 408,
+        "pos": 33,
+        "x1": 138,
+        "x2": 219,
+        "y1": 511,
+        "y2": 692,
+        "w": 81,
+        "h": 181,
+        "JS_TABLE": "'408', 'ANCHO:81', '(81)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_733.05",
+        "altura_media": 9,
+        "C_1_P": 8,
+        "C_1_R": 117,
+        "C_1_G": 159,
+        "C_1_B": 150,
+        "C_2_P": 38,
+        "C_2_R": 30,
+        "C_2_G": 95,
+        "C_2_B": 70,
+        "C_3_P": 52,
+        "C_3_R": 13,
+        "C_3_G": 53,
+        "C_3_B": 37,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 414,
+        "pos": 34,
+        "x1": 369,
+        "x2": 443,
+        "y1": 512,
+        "y2": 690,
+        "w": 74,
+        "h": 178,
+        "JS_TABLE": "'414', 'ANCHO:74', '(74)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_658.6",
+        "altura_media": 8,
+        "C_1_P": 8,
+        "C_1_R": 140,
+        "C_1_G": 177,
+        "C_1_B": 150,
+        "C_2_P": 22,
+        "C_2_R": 34,
+        "C_2_G": 109,
+        "C_2_B": 74,
+        "C_3_P": 68,
+        "C_3_R": 8,
+        "C_3_G": 65,
+        "C_3_B": 36,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 415,
+        "pos": 35,
+        "x1": 438,
+        "x2": 514,
+        "y1": 512,
+        "y2": 694,
+        "w": 76,
+        "h": 182,
+        "JS_TABLE": "'415', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_691.6",
+        "altura_media": 9,
+        "C_1_P": 10,
+        "C_1_R": 224,
+        "C_1_G": 229,
+        "C_1_B": 229,
+        "C_2_P": 13,
+        "C_2_R": 82,
+        "C_2_G": 141,
+        "C_2_B": 104,
+        "C_3_P": 76,
+        "C_3_R": 11,
+        "C_3_G": 76,
+        "C_3_B": 43,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 418,
+        "pos": 36,
+        "x1": 579,
+        "x2": 657,
+        "y1": 513,
+        "y2": 684,
+        "w": 78,
+        "h": 171,
+        "JS_TABLE": "'418', 'ANCHO:78', '(78)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_666.9",
+        "altura_media": 8,
+        "C_1_P": 7,
+        "C_1_R": 163,
+        "C_1_G": 196,
+        "C_1_B": 188,
+        "C_2_P": 29,
+        "C_2_R": 45,
+        "C_2_G": 127,
+        "C_2_B": 89,
+        "C_3_P": 62,
+        "C_3_R": 10,
+        "C_3_G": 77,
+        "C_3_B": 46,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 420,
+        "pos": 37,
+        "x1": 652,
+        "x2": 730,
+        "y1": 511,
+        "y2": 685,
+        "w": 78,
+        "h": 174,
+        "JS_TABLE": "'420', 'ANCHO:78', '(78)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_678.6",
+        "altura_media": 8,
+        "C_1_P": 9,
+        "C_1_R": 122,
+        "C_1_G": 168,
+        "C_1_B": 146,
+        "C_2_P": 30,
+        "C_2_R": 26,
+        "C_2_G": 110,
+        "C_2_B": 68,
+        "C_3_P": 60,
+        "C_3_R": 5,
+        "C_3_G": 66,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 421,
+        "pos": 38,
+        "x1": 724,
+        "x2": 801,
+        "y1": 505,
+        "y2": 692,
+        "w": 77,
+        "h": 187,
+        "JS_TABLE": "'421', 'ANCHO:77', '(77)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_719.95",
+        "altura_media": 9,
+        "C_1_P": 9,
+        "C_1_R": 180,
+        "C_1_G": 206,
+        "C_1_B": 196,
+        "C_2_P": 17,
+        "C_2_R": 59,
+        "C_2_G": 128,
+        "C_2_B": 90,
+        "C_3_P": 73,
+        "C_3_R": 8,
+        "C_3_G": 70,
+        "C_3_B": 38,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 423,
+        "pos": 39,
+        "x1": 788,
+        "x2": 869,
+        "y1": 506,
+        "y2": 690,
+        "w": 81,
+        "h": 184,
+        "JS_TABLE": "'423', 'ANCHO:81', '(81)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_745.2",
+        "altura_media": 9,
+        "C_1_P": 10,
+        "C_1_R": 182,
+        "C_1_G": 208,
+        "C_1_B": 196,
+        "C_2_P": 20,
+        "C_2_R": 62,
+        "C_2_G": 131,
+        "C_2_B": 90,
+        "C_3_P": 69,
+        "C_3_R": 10,
+        "C_3_G": 74,
+        "C_3_B": 42,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 429,
+        "pos": 40,
+        "x1": 0,
+        "x2": 75,
+        "y1": 522,
+        "y2": 703,
+        "w": 75,
+        "h": 181,
+        "JS_TABLE": "'429', 'ANCHO:75', '(75)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_678.75",
+        "altura_media": 9,
+        "C_1_P": 2,
+        "C_1_R": 170,
+        "C_1_G": 175,
+        "C_1_B": 171,
+        "C_2_P": 17,
+        "C_2_R": 80,
+        "C_2_G": 90,
+        "C_2_B": 80,
+        "C_3_P": 79,
+        "C_3_R": 24,
+        "C_3_G": 39,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 433,
+        "pos": 41,
+        "x1": 214,
+        "x2": 292,
+        "y1": 518,
+        "y2": 711,
+        "w": 78,
+        "h": 193,
+        "JS_TABLE": "'433', 'ANCHO:78', '(78)', 1, 1 ,'bottle'",
+        "clase_H": "H9",
+        "clase_VOLUMEN": "V_752.7",
+        "altura_media": 9,
+        "C_1_P": 13,
+        "C_1_R": 150,
+        "C_1_G": 180,
+        "C_1_B": 160,
+        "C_2_P": 27,
+        "C_2_R": 35,
+        "C_2_G": 112,
+        "C_2_B": 76,
+        "C_3_P": 58,
+        "C_3_R": 10,
+        "C_3_G": 67,
+        "C_3_B": 38,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 435,
+        "pos": 42,
+        "x1": 293,
+        "x2": 368,
+        "y1": 523,
+        "y2": 702,
+        "w": 75,
+        "h": 179,
+        "JS_TABLE": "'435', 'ANCHO:75', '(75)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_671.25",
+        "altura_media": 8,
+        "C_1_P": 6,
+        "C_1_R": 201,
+        "C_1_G": 218,
+        "C_1_B": 211,
+        "C_2_P": 16,
+        "C_2_R": 68,
+        "C_2_G": 131,
+        "C_2_B": 101,
+        "C_3_P": 77,
+        "C_3_R": 9,
+        "C_3_G": 70,
+        "C_3_B": 39,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 440,
+        "pos": 43,
+        "x1": 511,
+        "x2": 586,
+        "y1": 524,
+        "y2": 702,
+        "w": 75,
+        "h": 178,
+        "JS_TABLE": "'440', 'ANCHO:75', '(75)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_667.5",
+        "altura_media": 8,
+        "C_1_P": 11,
+        "C_1_R": 228,
+        "C_1_G": 231,
+        "C_1_B": 230,
+        "C_2_P": 13,
+        "C_2_R": 126,
+        "C_2_G": 154,
+        "C_2_B": 131,
+        "C_3_P": 75,
+        "C_3_R": 17,
+        "C_3_G": 79,
+        "C_3_B": 49,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 448,
+        "pos": 44,
+        "x1": 875,
+        "x2": 922,
+        "y1": 708,
+        "y2": 753,
+        "w": 47,
+        "h": 45,
+        "JS_TABLE": "'448', 'ANCHO:47', '(47)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_105.75",
+        "altura_media": 2,
+        "C_1_P": 4,
+        "C_1_R": 131,
+        "C_1_G": 156,
+        "C_1_B": 154,
+        "C_2_P": 7,
+        "C_2_R": 57,
+        "C_2_G": 95,
+        "C_2_B": 83,
+        "C_3_P": 88,
+        "C_3_R": 7,
+        "C_3_G": 55,
+        "C_3_B": 33,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 451,
+        "pos": 45,
+        "x1": 190,
+        "x2": 240,
+        "y1": 730,
+        "y2": 767,
+        "w": 50,
+        "h": 37,
+        "JS_TABLE": "'451', 'ANCHO:50', '(50)', 1, 1 ,'bottle'",
+        "clase_H": "H1",
+        "clase_VOLUMEN": "V_92.5",
+        "altura_media": 1,
+        "C_1_P": 3,
+        "C_1_R": 63,
+        "C_1_G": 121,
+        "C_1_B": 98,
+        "C_2_P": 16,
+        "C_2_R": 18,
+        "C_2_G": 79,
+        "C_2_B": 54,
+        "C_3_P": 79,
+        "C_3_R": 11,
+        "C_3_G": 53,
+        "C_3_B": 38,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 452,
+        "pos": 46,
+        "x1": 546,
+        "x2": 583,
+        "y1": 721,
+        "y2": 775,
+        "w": 37,
+        "h": 54,
+        "JS_TABLE": "'452', 'ANCHO:37', '(37)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_99.9",
+        "altura_media": 2,
+        "C_1_P": 5,
+        "C_1_R": 110,
+        "C_1_G": 173,
+        "C_1_B": 154,
+        "C_2_P": 15,
+        "C_2_R": 20,
+        "C_2_G": 98,
+        "C_2_B": 68,
+        "C_3_P": 79,
+        "C_3_R": 5,
+        "C_3_G": 57,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 453,
+        "pos": 47,
+        "x1": 613,
+        "x2": 651,
+        "y1": 717,
+        "y2": 772,
+        "w": 38,
+        "h": 55,
+        "JS_TABLE": "'453', 'ANCHO:38', '(38)', 1, 1 ,'bottle'",
+        "clase_H": "H2",
+        "clase_VOLUMEN": "V_104.5",
+        "altura_media": 2,
+        "C_1_P": 2,
+        "C_1_R": 120,
+        "C_1_G": 164,
+        "C_1_B": 152,
+        "C_2_P": 22,
+        "C_2_R": 13,
+        "C_2_G": 88,
+        "C_2_B": 52,
+        "C_3_P": 74,
+        "C_3_R": 5,
+        "C_3_G": 57,
+        "C_3_B": 34,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 455,
+        "pos": 48,
+        "x1": 949,
+        "x2": 989,
+        "y1": 710,
+        "y2": 772,
+        "w": 40,
+        "h": 62,
+        "JS_TABLE": "'455', 'ANCHO:40', '(40)', 1, 1 ,'bottle'",
+        "clase_H": "H3",
+        "clase_VOLUMEN": "V_124.0",
+        "altura_media": 3,
+        "C_1_P": 6,
+        "C_1_R": 54,
+        "C_1_G": 100,
+        "C_1_B": 80,
+        "C_2_P": 45,
+        "C_2_R": 9,
+        "C_2_G": 68,
+        "C_2_B": 40,
+        "C_3_P": 47,
+        "C_3_R": 9,
+        "C_3_G": 49,
+        "C_3_B": 31,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 458,
+        "pos": 49,
+        "x1": 481,
+        "x2": 519,
+        "y1": 722,
+        "y2": 790,
+        "w": 38,
+        "h": 68,
+        "JS_TABLE": "'458', 'ANCHO:38', '(38)', 1, 1 ,'bottle'",
+        "clase_H": "H3",
+        "clase_VOLUMEN": "V_129.2",
+        "altura_media": 3,
+        "C_1_P": 2,
+        "C_1_R": 55,
+        "C_1_G": 117,
+        "C_1_B": 91,
+        "C_2_P": 40,
+        "C_2_R": 4,
+        "C_2_G": 89,
+        "C_2_B": 45,
+        "C_3_P": 57,
+        "C_3_R": 4,
+        "C_3_G": 59,
+        "C_3_B": 34,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 469,
+        "pos": 50,
+        "x1": 761,
+        "x2": 830,
+        "y1": 718,
+        "y2": 870,
+        "w": 69,
+        "h": 152,
+        "JS_TABLE": "'469', 'ANCHO:69', '(69)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_524.4",
+        "altura_media": 7,
+        "C_1_P": 5,
+        "C_1_R": 110,
+        "C_1_G": 168,
+        "C_1_B": 146,
+        "C_2_P": 44,
+        "C_2_R": 5,
+        "C_2_G": 77,
+        "C_2_B": 42,
+        "C_3_P": 49,
+        "C_3_R": 19,
+        "C_3_G": 111,
+        "C_3_B": 71,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 479,
+        "pos": 51,
+        "x1": 215,
+        "x2": 286,
+        "y1": 736,
+        "y2": 884,
+        "w": 71,
+        "h": 148,
+        "JS_TABLE": "'479', 'ANCHO:71', '(71)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_525.4",
+        "altura_media": 7,
+        "C_1_P": 8,
+        "C_1_R": 117,
+        "C_1_G": 167,
+        "C_1_B": 144,
+        "C_2_P": 38,
+        "C_2_R": 35,
+        "C_2_G": 109,
+        "C_2_B": 79,
+        "C_3_P": 52,
+        "C_3_R": 8,
+        "C_3_G": 77,
+        "C_3_B": 46,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 485,
+        "pos": 52,
+        "x1": 418,
+        "x2": 494,
+        "y1": 735,
+        "y2": 882,
+        "w": 76,
+        "h": 147,
+        "JS_TABLE": "'485', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_558.6",
+        "altura_media": 7,
+        "C_1_P": 8,
+        "C_1_R": 113,
+        "C_1_G": 168,
+        "C_1_B": 142,
+        "C_2_P": 45,
+        "C_2_R": 4,
+        "C_2_G": 79,
+        "C_2_B": 44,
+        "C_3_P": 46,
+        "C_3_R": 23,
+        "C_3_G": 115,
+        "C_3_B": 76,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 487,
+        "pos": 53,
+        "x1": 487,
+        "x2": 563,
+        "y1": 730,
+        "y2": 885,
+        "w": 76,
+        "h": 155,
+        "JS_TABLE": "'487', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_589.0",
+        "altura_media": 7,
+        "C_1_P": 6,
+        "C_1_R": 82,
+        "C_1_G": 149,
+        "C_1_B": 117,
+        "C_2_P": 41,
+        "C_2_R": 3,
+        "C_2_G": 76,
+        "C_2_B": 41,
+        "C_3_P": 51,
+        "C_3_R": 21,
+        "C_3_G": 107,
+        "C_3_B": 70,
+        "GrupoPaleta": 1
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 490,
+        "pos": 54,
+        "x1": 556,
+        "x2": 632,
+        "y1": 730,
+        "y2": 887,
+        "w": 76,
+        "h": 157,
+        "JS_TABLE": "'490', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_596.6",
+        "altura_media": 7,
+        "C_1_P": 7,
+        "C_1_R": 132,
+        "C_1_G": 183,
+        "C_1_B": 166,
+        "C_2_P": 44,
+        "C_2_R": 28,
+        "C_2_G": 115,
+        "C_2_B": 81,
+        "C_3_P": 48,
+        "C_3_R": 4,
+        "C_3_G": 81,
+        "C_3_B": 46,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 491,
+        "pos": 55,
+        "x1": 624,
+        "x2": 700,
+        "y1": 727,
+        "y2": 891,
+        "w": 76,
+        "h": 164,
+        "JS_TABLE": "'491', 'ANCHO:76', '(76)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_623.2",
+        "altura_media": 8,
+        "C_1_P": 9,
+        "C_1_R": 135,
+        "C_1_G": 179,
+        "C_1_B": 157,
+        "C_2_P": 42,
+        "C_2_R": 30,
+        "C_2_G": 118,
+        "C_2_B": 78,
+        "C_3_P": 48,
+        "C_3_R": 5,
+        "C_3_G": 81,
+        "C_3_B": 43,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 492,
+        "pos": 56,
+        "x1": 691,
+        "x2": 771,
+        "y1": 732,
+        "y2": 887,
+        "w": 80,
+        "h": 155,
+        "JS_TABLE": "'492', 'ANCHO:80', '(80)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_620.0",
+        "altura_media": 7,
+        "C_1_P": 8,
+        "C_1_R": 131,
+        "C_1_G": 186,
+        "C_1_B": 166,
+        "C_2_P": 44,
+        "C_2_R": 5,
+        "C_2_G": 85,
+        "C_2_B": 46,
+        "C_3_P": 47,
+        "C_3_R": 26,
+        "C_3_G": 127,
+        "C_3_B": 84,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 496,
+        "pos": 57,
+        "x1": 819,
+        "x2": 898,
+        "y1": 726,
+        "y2": 883,
+        "w": 79,
+        "h": 157,
+        "JS_TABLE": "'496', 'ANCHO:79', '(79)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_620.15",
+        "altura_media": 7,
+        "C_1_P": 9,
+        "C_1_R": 142,
+        "C_1_G": 184,
+        "C_1_B": 167,
+        "C_2_P": 32,
+        "C_2_R": 38,
+        "C_2_G": 121,
+        "C_2_B": 80,
+        "C_3_P": 58,
+        "C_3_R": 7,
+        "C_3_G": 82,
+        "C_3_B": 44,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 499,
+        "pos": 58,
+        "x1": 890,
+        "x2": 968,
+        "y1": 724,
+        "y2": 887,
+        "w": 78,
+        "h": 163,
+        "JS_TABLE": "'499', 'ANCHO:78', '(78)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_635.7",
+        "altura_media": 8,
+        "C_1_P": 12,
+        "C_1_R": 153,
+        "C_1_G": 182,
+        "C_1_B": 167,
+        "C_2_P": 31,
+        "C_2_R": 38,
+        "C_2_G": 116,
+        "C_2_B": 75,
+        "C_3_P": 55,
+        "C_3_R": 8,
+        "C_3_G": 76,
+        "C_3_B": 41,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 500,
+        "pos": 59,
+        "x1": 949,
+        "x2": 1026,
+        "y1": 722,
+        "y2": 887,
+        "w": 77,
+        "h": 165,
+        "JS_TABLE": "'500', 'ANCHO:77', '(77)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_635.25",
+        "altura_media": 8,
+        "C_1_P": 8,
+        "C_1_R": 147,
+        "C_1_G": 167,
+        "C_1_B": 150,
+        "C_2_P": 35,
+        "C_2_R": 32,
+        "C_2_G": 107,
+        "C_2_B": 71,
+        "C_3_P": 55,
+        "C_3_R": 14,
+        "C_3_G": 71,
+        "C_3_B": 44,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 502,
+        "pos": 60,
+        "x1": 148,
+        "x2": 219,
+        "y1": 742,
+        "y2": 904,
+        "w": 71,
+        "h": 162,
+        "JS_TABLE": "'502', 'ANCHO:71', '(71)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_575.1",
+        "altura_media": 8,
+        "C_1_P": 10,
+        "C_1_R": 196,
+        "C_1_G": 204,
+        "C_1_B": 198,
+        "C_2_P": 13,
+        "C_2_R": 115,
+        "C_2_G": 148,
+        "C_2_B": 132,
+        "C_3_P": 76,
+        "C_3_R": 30,
+        "C_3_G": 88,
+        "C_3_B": 65,
+        "GrupoPaleta": 0
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 505,
+        "pos": 61,
+        "x1": 279,
+        "x2": 354,
+        "y1": 743,
+        "y2": 899,
+        "w": 75,
+        "h": 156,
+        "JS_TABLE": "'505', 'ANCHO:75', '(75)', 1, 1 ,'bottle'",
+        "clase_H": "H7",
+        "clase_VOLUMEN": "V_585.0",
+        "altura_media": 7,
+        "C_1_P": 10,
+        "C_1_R": 146,
+        "C_1_G": 189,
+        "C_1_B": 169,
+        "C_2_P": 36,
+        "C_2_R": 40,
+        "C_2_G": 119,
+        "C_2_B": 87,
+        "C_3_P": 52,
+        "C_3_R": 7,
+        "C_3_G": 86,
+        "C_3_B": 48,
+        "GrupoPaleta": 3
+    },
+    {
+        "tipo": "bottle",
+        "id_interno": 508,
+        "pos": 62,
+        "x1": 351,
+        "x2": 425,
+        "y1": 740,
+        "y2": 900,
+        "w": 74,
+        "h": 160,
+        "JS_TABLE": "'508', 'ANCHO:74', '(74)', 1, 1 ,'bottle'",
+        "clase_H": "H8",
+        "clase_VOLUMEN": "V_592.0",
+        "altura_media": 8,
+        "C_1_P": 9,
+        "C_1_R": 158,
+        "C_1_G": 197,
+        "C_1_B": 184,
+        "C_2_P": 38,
+        "C_2_R": 38,
+        "C_2_G": 122,
+        "C_2_B": 93,
+        "C_3_P": 51,
+        "C_3_R": 6,
+        "C_3_G": 86,
+        "C_3_B": 50,
+        "GrupoPaleta": 3
+    }
+]
+
+
+
+; //var arr = [
+
+
+for (var botella of botellas) 
+{
+	//alert("botella:" + botella.id_interno)
+  //document.write(car.name + "<br />");
+}
+
+
+			
+
+			var table = [
+
+
+
+'A', ' B_GLOSA_A ', '(20)', 1, 1 ,'ZONA_A',
+'B', ' B_GLOSA_B ', '(20)', 1, 1 ,'ZONA_NORTE',
+
+'2', 'ANCHO:99', '(99)', 2, 1 ,'bottle',
+
+'3', 'ANCHO:97', '(97)', 2, 2 ,'bottle',
+'5', 'ANCHO:96', '(96)', 2, 3 ,'bottle',
+'6', 'ANCHO:91', '(91)', 2, 4 ,'bottle'
+/*
+    {
+        "tipo": "bottle",
+        "id_interno": "2",
+        "x1": 82,
+        "x2": 181,
+        "y1": 6,
+        "y2": 224,
+        "w": 99,
+        "h": 218,
+        "clase_H": "H10",
+        "clase_VOLUMEN": "V_1079.1",
+        "altura_media": 10,
+        "C_1_P": 15,
+        "C_1_R": 171,
+        "C_1_G": 218,
+        "C_1_B": 207,
+        "C_2_P": 18,
+        "C_2_R": 60,
+        "C_2_G": 177,
+        "C_2_B": 130,
+        "C_3_P": 65,
+        "C_3_R": 7,
+        "C_3_G": 147,
+        "C_3_B": 80
+    },
+
+*/
+
+
+
+
+			];
+
+			var camera, scene, renderer;
+			var controls;
+
+			var objects = [];
+			var targets = { table: [], sphere: [], helix: [], grid: [] };
+
+			init();
+			animate();
+
+/*
+        var img_TEST = new THREE.MeshLambertMaterial({
+            map:THREE.ImageUtils.loadTexture('botellas/1.jpg')
+        });
+
+        // plane
+        var plane = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img);
+        plane.overdraw = true;
+        scene.add(plane);
+*/
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.z = 3000;
+
+				scene = new THREE.Scene();
+
+
+				var cube = new THREE.Mesh(
+				new THREE.BoxGeometry(3, 3, 3),
+				new THREE.MeshPhongMaterial({ color: 0xffffff })
+				);
+				cube.cursor = 'pointer';
+				cube.position.y = -2;
+				cube.position.z = -10;
+				cube.name = 'cube';
+				scene.add(cube);
+
+
+
+
+
+
+
+				// table
+				var botellas_f = [];
+				botellas_f = botellas;
+
+				for (var botella of botellas_f) 
+				{
+					//alert("botella:" + botella.id_interno)
+					var element = document.createElement( 'div' );
+					element.id = "botella_" + botella.pos;
+					var elementIMG = document.createElement( 'img' );
+					elementIMG.src = "botellas/22032022115408_FOTO_SALA_BUENA/" + botella.id_interno + ".jpg"
+					//elementIMG.src = "botellas/_ELEGIDA_27012022165311_FOTO_SALA_BUENA/" + botella.id_interno + ".jpg"
+					//elementIMG.src = "botellas/_ELEGIDA_26012022113354_FOTO_SALA_BUENA/" + botella.id_interno + ".jpg"
+
+
+
+
+
+
+					element.appendChild( elementIMG );
+					elementIMG.onclick=fn_2
+					//element.innerHTML = "<img src='botellas/'" + botella.id_interno + ".jpg'>">
+					//element.className = 'element';
+					element.className = 'elemento';
+
+					//element.onClick=fn_2;
+					//element.onclick=fn_2;
+					element.botella = botella;
+//					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+					element.style.backgroundColor = 'rgba(80,64,64,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+					var number = document.createElement( 'div' );
+					number.className = 'number';
+					number.textContent = botella.tipo + ":id:" + botella.id_interno;
+					element.appendChild( number );
+
+					var symbol = document.createElement( 'div' );
+					symbol.className = 'symbol';
+					symbol.textContent = botella.pos;
+					element.appendChild( symbol );
+
+					var details = document.createElement( 'div' );
+					details.className = 'details';
+					details.innerHTML = 'w:'+ botella.w + 'h:' + botella.h;
+					details.innerHTML = details.innerHTML + '<BR>' + 'SPRITE';
+					details.innerHTML = details.innerHTML + '<BR>TALLA:' + botella.clase_H;
+					element.appendChild( details );
+
+					var object = new CSS3DObject( element );
+					//object.onclick="alert('CAPTURANDO EVENTOS CLICK EN:')"
+					object.position.x = Math.random() * 4000 - 2000;
+					object.position.y = Math.random() * 4000 - 2000;
+					object.position.z = Math.random() * 4000 - 2000;
+					scene.add( object );
+
+					objects.push( object );
+
+					//
+
+					var object = new THREE.Object3D();
+					//object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+					//object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+					object.position.x = botella.x1*2 - 1330;
+					object.position.y = - botella.y1*2 + 990;
+
+					targets.table.push( object );
+				}
+
+
+				// sphere
+
+				var vector = new THREE.Vector3();
+
+				for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+					var phi = Math.acos( - 1 + ( 2 * i ) / l );
+
+					var theta = Math.sqrt( l * Math.PI ) * phi; 
+
+					var object = new THREE.Object3D();
+
+					object.position.setFromSphericalCoords( 400, phi, theta );
+
+					vector.copy( object.position ).multiplyScalar( 2 );
+
+					object.lookAt( vector );
+
+					targets.sphere.push( object );
+
+				}
+
+				// helix
+
+				var vector = new THREE.Vector3();
+
+				for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+					var theta = i * 0.175 + Math.PI;
+					var y = - ( i * 8 ) + 450;
+
+					var object = new THREE.Object3D();
+
+					object.position.setFromCylindricalCoords( 900, theta, y );
+
+					vector.x = object.position.x * 2;
+					vector.y = object.position.y;
+					vector.z = object.position.z * 2;
+
+					object.lookAt( vector );
+
+					targets.helix.push( object );
+
+				}
+
+				// grid
+
+				for ( var i = 0; i < objects.length; i ++ ) {
+					//alert("objects:" + objects[i])
+					var object = new THREE.Object3D();
+
+					object.position.x = ( ( i % 5 ) * 400 ) - 800;
+					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+					//object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+					//object.position.z = objects.GrupoPaleta * 100
+
+
+					targets.grid.push( object );
+
+				}
+
+				//
+
+				renderer = new CSS3DRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+				//
+
+				controls = new TrackballControls( camera, renderer.domElement );
+				controls.minDistance = 500;
+				controls.maxDistance = 6000;
+				controls.addEventListener( 'change', render );
+
+				var button = document.getElementById( 'table' );
+				button.addEventListener( 'click', function () {
+
+					transform( targets.table, 2000 );
+
+				}, false );
+
+				var button = document.getElementById( 'sphere' );
+				button.addEventListener( 'click', function () {
+
+					transform( targets.sphere, 2000 );
+
+				}, false );
+
+				var button = document.getElementById( 'helix' );
+				button.addEventListener( 'click', function () {
+
+					transform( targets.helix, 2000 );
+
+				}, false );
+
+				var button = document.getElementById( 'grid' );
+				button.addEventListener( 'click', function () {
+
+					transform( targets.grid, 2000 );
+
+				}, false );
+
+				transform( targets.table, 2000 );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function transform( targets, duration ) {
+
+				TWEEN.removeAll();
+
+				for ( var i = 0; i < objects.length; i ++ ) {
+
+					var object = objects[ i ];
+					var target = targets[ i ];
+
+					new TWEEN.Tween( object.position )
+						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+					new TWEEN.Tween( object.rotation )
+						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+				}
+
+				new TWEEN.Tween( this )
+					.to( {}, duration * 2 )
+					.onUpdate( render )
+					.start();
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				TWEEN.update();
+
+				controls.update();
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+			function fn_2(e) {
+
+				//alert("CAPTURANDO EVENTO CLICK EN fn_2(e)");
+				alert("CAPTURANDO e.target" + e.target);
+				alert("CAPTURANDO e.target.parentNode:" + e.target.parentNode);
+				alert("CAPTURANDO e.target.parentNode.botella.id_interno:" + e.target.parentNode.botella.id_interno);
+
+
+
+
+			}
+
+
+
+		</script>
+	</body>
+</html>
