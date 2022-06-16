@@ -11,10 +11,13 @@ def index():
 
 @app.route('/proces')
 def proceso():
-    return render_template('IND_MAQUETA_008_BOT_ELLA.html')
-    return 'Se desatara el proceso'
+    n_value = request.args.get('value','No definida')
+    print(n_value)
+    return render_template('IND_MAQUETA_009_BOT_ELLA.html', nfoto=n_value)
+    return n_value
 
 @app.route('/param')
+
 #http://127.0.0.1:5600/param?ruta=%22c:/ca/reat/%22&archivo=foto.jpg
 def paramemtro():
     n_param = request.args.get('ruta','No definida')
