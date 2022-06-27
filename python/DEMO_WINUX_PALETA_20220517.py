@@ -42,7 +42,7 @@ def testYolo(src_, types_):
         img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
         img_ORIGINAL = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     else:
-        path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
+        path_ = "C:/documentos/2022/Rene/TEST_CLASIFICATOR/python/"
         img = None
         img = cv2.imread(f'{path_}{src_}')
         #print(f"tamos en windors compare:{src_}")
@@ -52,7 +52,7 @@ def testYolo(src_, types_):
     #img = cv2.imread(f'{path_}{src_}')
 
     # Load Yolo
-    yolo_weight = "C:/RSILVA_REPOS/yolov3.weights"
+    yolo_weight = "C:/documentos/2022/Rene/yolov3.weights"
     yolo_config = "yolov3.cfg"
     coco_labels = "coco.names"
     net = cv2.dnn.readNet(yolo_weight, yolo_config)
