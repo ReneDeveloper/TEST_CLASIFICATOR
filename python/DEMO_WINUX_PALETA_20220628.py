@@ -5,30 +5,31 @@ import numpy as np
 import json
 import boto3
 import os
-from os import environ
 
-isLOGGED = True
 
 def __log(txt_):
-
+    isLOGGED = False
     if (isLOGGED):
         print("__log:{__log}")
 
-def testYolo(src_, types_):
+
+def yolo3_botella(src_, types_):
     # Loading image
     img = None
+    isTEST = os.name == 'nt'
+    isWINDOWS = False
 
-    RUTA_YOLO: str = environ.get("RUTA_YOLO")
-    print(f"RUTA_YOLO:{RUTA_YOLO}")
+    print("")
+
     #img_ORIGINAL = None
 
-    if os.name != 'nt':
+    if  not isWINDOWS:
         session = boto3.Session(profile_name='default')
         dev_client = session.client('s3')
         dev_resource = boto3.resource('s3')
         bucket_name = "cadem-vision-artificial-photos"
 
-        print(f"vamos a abrir: vision_artificial/{src_}, en el bucket:{bucket_name}")
+        __log(f"vamos a abrir: vision_artificial/{src_}, en el bucket:{bucket_name}")
         file_obj = dev_client.get_object(
             Bucket=bucket_name, Key=f'vision_artificial/{src_}')
         # reading the file content in bytes
@@ -41,10 +42,11 @@ def testYolo(src_, types_):
         img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
         img_ORIGINAL = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     else:
+        print(f"tamos en windors compare:{src_}")
         path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
         img = None
         img = cv2.imread(f'{path_}{src_}')
-        #print(f"tamos en windors compare:{src_}")
+       
 
     salida = {}
 
@@ -60,23 +62,14 @@ def testYolo(src_, types_):
     with open(coco_labels, "r") as f:
         classes = [line.strip() for line in f.readlines()]
 
-    # print(classes)
-
-    # # Defining desired shape
     fWidth = 1024
     fHeight = 1024
-    #fWidth = 2048
-    #fHeight = 2048
-    #fWidth = 4096
-    #fHeight = 4096
+
     out_flag = f"{fWidth}{fHeight}"
 
-    # Resize image in opencv
     img = cv2.resize(img, (fWidth, fHeight))
 
     img_ORIGINAL_TO_1024 = cv2.resize(img, (fWidth, fHeight))
-    # SOLO EN DEV
-    # cv2.imwrite(f'{path_}_ORIG_BANDEJERO_1024_{src_}',img)
 
     height, width, channels = img.shape
 
@@ -112,16 +105,10 @@ def testYolo(src_, types_):
         output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()] 
 
 
-    #print(output_layers)
-      # FALLA EN WINDOWS
-    # 
-    #print(output_layers)
+
 
     # Send blob data to forward pass
-    outs = net.forward(output_layers)
-    #print(outs[0].shape)
-    #print(outs[1].shape)
-    #print(outs[2].shape)
+    outs = net.forward(output_layers) #  #print(outs[0].shape)   #print(outs[1].shape)   #print(outs[2].shape)
 
     # Generating random color for all 80 classes
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
@@ -174,7 +161,7 @@ def testYolo(src_, types_):
                 x=0
 
             #si tiene una guatonés muy grande
-            if w>110:#RSILVA_20220518   if w>100: -->if w>110: -->NINGUNA BOTELLA DEBERIA SER MAYOR AL 10% DE LA FOTO
+            if w>110:#RSILVA_202206129  if w>110: -->if w>110: -->NINGUNA BOTELLA DEBERIA SER MAYOR AL 10% DE LA FOTO
                 #fixed 124 para botellas, aparecerá otro para latas o para elementos mas gordos
                 continue
             repos = repos + 1
@@ -274,7 +261,7 @@ def testYolo(src_, types_):
             except Exception as ex:
                 print(f"Exception in imwrite -  : {ex}")
 
-    if os.name != 'nt':
+    if not isWINDOWS:
         print("tamos en linus compare")
         # ESCRIBE LA SALIDA JPG EN EL BUCKET
         image_string = cv2.imencode('.jpg', img)[1].tostring()
@@ -423,66 +410,20 @@ def __paleta__(path_, file_):
 
 #testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
 #testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+yolo3_botella("TEST_COCA_COLA_2220629.jpg", types_=['bottle']) # coca cola
 #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 
+"""
 
+    if os.name != 'nt':
+        print("tamos en linus compare")
+    else:
+        print("tamos en windors compare")
 
-from re import T
-from flask import Flask
-from flask import request
-from flask import Flask, render_template
+python DEMO_WINUX_PALETA_20220517.py
 
-app = Flask(__name__)
+C:/RSILVA_BOT_BASICS/ETL_CADEM/VISION_ARTIFICIAL/DEMO_OBJETOS/SUB_IMAGENES
 
-@app.route('/')
-def index():
-    return 'Hola amiguito soy BOt-ella'
-
-@app.route('/proces')
-def proceso():
-    print("INICIO_PROCESO:")
-    RUTA_YOLO: str = environ.get("RUTA_YOLO")
-    print(f"RUTA_YOLO:{RUTA_YOLO}")
-
-    #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
-
-    n_value = request.args.get('value','No definida')
-    print("n_value:{n_value}")
-    return render_template('IND_MAQUETA_009_BOT_ELLA.html', nfoto=n_value)
-    return n_value
-
-@app.route('/param')
-
-#http://127.0.0.1:5600/param?ruta=%22c:/ca/reat/%22&archivo=foto.jpg
-def paramemtro():
-    n_param = request.args.get('ruta','No definida')
-    n_archivo =request.args.get('archivo','no definido')
-    n_tolerancia =request.args.get('tolerancia','no definido')
-    salida =f"usted ejecuto con los siguientes parametros ruta {n_param} , archivo {n_archivo} y tolerancia {n_tolerancia}"
-    return salida
-
-@app.route('/config')
-@app.route('/config/<n_ruta>/')
-@app.route('/config/<n_ruta>/<n_archivo>')
-#http://127.0.0.1:5600/config/carpeta/foto.jpg
-def config(n_ruta='No definida',n_archivo ='no definido'):
-    salida =f"usted ejecuto config con ruta {n_ruta} y archivo {n_archivo}"
-    return salida
-
-@app.after_request
-def add_header(r):
-    """
-    Add headers to both force latest IE rendering engine or Chrome Frame,
-    and also to cache the rendered page for 10 minutes.
-    """
-    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    r.headers["Pragma"] = "no-cache"
-    r.headers["Expires"] = "0"
-    r.headers['Cache-Control'] = 'public, max-age=0'
-    return r
-
-if __name__ == '__main__':
-    app.run(debug=True,port= 5600)
-
+"""
