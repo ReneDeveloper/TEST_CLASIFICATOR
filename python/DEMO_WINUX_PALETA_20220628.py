@@ -13,7 +13,7 @@ def __log(txt_):
         print("__log:{__log}")
 
 
-def yolo3_botella(src_, types_):
+def yolo3_botella(src_, types_, umbral_):
     # Loading image
     img = None
     isTEST = os.name == 'nt'
@@ -64,6 +64,8 @@ def yolo3_botella(src_, types_):
 
     fWidth = 1024
     fHeight = 1024
+    #fWidth = 640
+    #fHeight = 640
 
     out_flag = f"{fWidth}{fHeight}"
 
@@ -126,7 +128,7 @@ def yolo3_botella(src_, types_):
             # Confidence score for each object ID
             confidence = scores[class_id]
             # if confidence > 0.5 and class_id == 0:
-            if confidence > 0.5:
+            if confidence > umbral_:
                 # Extract values to draw bounding box
                 center_x = int(detection[0] * width)
                 center_y = int(detection[1] * height)
@@ -410,7 +412,9 @@ def __paleta__(path_, file_):
 
 #testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
 #testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
-yolo3_botella("TEST_COCA_COLA_2220629.jpg", types_=['bottle']) # coca cola
+#yolo3_botella("TEST_COCA_COLA_2220629.jpg", types_=['bottle']) # coca cola
+#yolo3_botella("TEST_ANDINA_20220629.jpg", types_=['bottle'], umbral_=0.85) # coca cola
+yolo3_botella("TEST_SPRITE_20220629.jpg", types_=['bottle'], umbral_=0.85) # coca cola
 #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 

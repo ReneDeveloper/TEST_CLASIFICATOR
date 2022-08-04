@@ -95,10 +95,10 @@ def testYolo(src_, types_):
     output_layers = []
 
     if os.name != 'nt':
-        print("tamos en linus compare")
+        print("LINUX_FLAG")
         output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     else:
-        print("tamos en windors compare")
+        print("WINDOWS_FLAG")
         output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()] 
 
 
@@ -411,10 +411,10 @@ def __paleta__(path_, file_):
     out["OUT"] = "test" 
     return out
 
-#testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
+testYolo("22032022115408_FOTO_SALA_BUENA.jpg", types_=['bottle'])  #sprite
 #testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
-testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+#testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
 
 

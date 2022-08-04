@@ -52,8 +52,8 @@ def testYolo(src_, types_):
 
     # Load Yolo
     yolo_weight = "C:/RSILVA_REPOS/yolov3.weights"
-    yolo_config = "yolov3.cfg"
-    coco_labels = "coco.names"
+    yolo_config = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/yolov3.cfg"
+    coco_labels = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/coco.names"
     net = cv2.dnn.readNet(yolo_weight, yolo_config)
 
     classes = []
@@ -427,6 +427,14 @@ def __paleta__(path_, file_):
 
 
 
+#INICIO DEL FLUJO
+params_sistema = {}
+params_sistema["RUTA_IMAGEN_S3"] = "RUTA_IMAGEN_S3_____"
+params_sistema["RUTA_JSON_S3"] = "RUTA_JSON_S3"
+params_sistema["RUTA_SUBIMAGES_S3"] = "RUTA_SUBIMAGES_S3"
+
+params_sistema["RUTA_YOLO_LOCAL"] = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/yolov3.cfg"
+params_sistema["RUTA_COCO_LOCAL"] = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/coco.names"
 
 
 from re import T
@@ -436,11 +444,21 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['GET', 'POST'])
 def index():
+
+
+
+    DICT_PARAMS={}
+
+
+
+
+
+    #print(os.environ['RUTA_YOLO'])
     return 'Hola amiguito soy BOt-ella'
 
-@app.route('/proces')
+@app.route('/proceso',methods=['GET', 'POST'])
 def proceso():
     print("INICIO_PROCESO:")
     RUTA_YOLO: str = environ.get("RUTA_YOLO")
@@ -449,18 +467,26 @@ def proceso():
     #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 
     n_value = request.args.get('value','No definida')
-    print("n_value:{n_value}")
-    return render_template('IND_MAQUETA_009_BOT_ELLA.html', nfoto=n_value)
+    t_value = request.args.get('t','No definida')
+    print(f"n_value:{n_value}")
+    return render_template('IND_MAQUETA_010_BOT_ELLA.html', nfoto=n_value, t=t_value)
     return n_value
 
-@app.route('/param')
+@app.route('/genera', methods=['GET'])
 
 #http://127.0.0.1:5600/param?ruta=%22c:/ca/reat/%22&archivo=foto.jpg
-def paramemtro():
-    n_param = request.args.get('ruta','No definida')
-    n_archivo =request.args.get('archivo','no definido')
-    n_tolerancia =request.args.get('tolerancia','no definido')
-    salida =f"usted ejecuto con los siguientes parametros ruta {n_param} , archivo {n_archivo} y tolerancia {n_tolerancia}"
+#http://127.0.0.1:5600/genera?ruta=%22c:/ca/reat/%22&archivo=foto.jpg
+def genera():
+    n_ruta   = request.args.get('ruta','No definida')
+    n_archivo = request.args.get('archivo','no definido')
+    n_umbral  = request.args.get('umbral','0.5')
+
+
+    print(f"n_ruta:{n_ruta}")
+#    testYolo("TEST_COCA_COLA_2220629.jpg", types_=['bottle']) # coca cola
+    salida =f"usted ejecuto con los siguientes parametros ruta {n_ruta} , archivo {n_archivo} y n_umbral {n_umbral}"
+
+
     return salida
 
 @app.route('/config')
@@ -471,18 +497,30 @@ def config(n_ruta='No definida',n_archivo ='no definido'):
     salida =f"usted ejecuto config con ruta {n_ruta} y archivo {n_archivo}"
     return salida
 
+
 @app.after_request
 def add_header(r):
-    """
-    Add headers to both force latest IE rendering engine or Chrome Frame,
-    and also to cache the rendered page for 10 minutes.
-    """
-    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    
+    #Add headers to both force latest IE rendering engine or Chrome Frame,
+    #and also to cache the rendered page for 10 minutes.
+    
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate,public, max-age=0"
     r.headers["Pragma"] = "no-cache"
     r.headers["Expires"] = "0"
-    r.headers['Cache-Control'] = 'public, max-age=0'
+    #r.headers['Cache-Control'] = ''
     return r
+
+
+"""
+@app.after_request
+def add_header(response):    
+  response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+  if ('Cache-Control' not in response.headers):
+    response.headers['Cache-Control'] = 'public, max-age=600'
+  return response
+"""
 
 if __name__ == '__main__':
     app.run(debug=True,port= 5600)
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
