@@ -17,7 +17,7 @@ def yolo3_botella(src_, types_, umbral_):
     # Loading image
     img = None
     isTEST = os.name == 'nt'
-    isWINDOWS = False
+    isWINDOWS = True
 
     print("")
 
@@ -43,19 +43,20 @@ def yolo3_botella(src_, types_, umbral_):
         img_ORIGINAL = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     else:
         print(f"tamos en windors compare:{src_}")
-        path_ = "C:/RSILVA_REPOS/TEST_CLASIFICATOR/python/"
+        path_ = "D:/RSILVA_REPOS/TEST_CLASIFICATOR/python/demo_cluster/"
+        
         img = None
         img = cv2.imread(f'{path_}{src_}')
-       
+
 
     salida = {}
 
     #img = cv2.imread(f'{path_}{src_}')
 
     # Load Yolo
-    yolo_weight = "C:/RSILVA_REPOS/yolov3.weights"
-    yolo_config = "yolov3.cfg"
-    coco_labels = "coco.names"
+    yolo_weight = "D:/RSILVA_NO_REPO/yolov3.weights"
+    yolo_config = "D:/RSILVA_NO_REPO/yolov3.cfg"
+    coco_labels = "D:/RSILVA_NO_REPO/coco.names"
     net = cv2.dnn.readNet(yolo_weight, yolo_config)
 
     classes = []
@@ -105,9 +106,6 @@ def yolo3_botella(src_, types_, umbral_):
     else:
         print("tamos en windors compare")
         output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()] 
-
-
-
 
     # Send blob data to forward pass
     outs = net.forward(output_layers) #  #print(outs[0].shape)   #print(outs[1].shape)   #print(outs[2].shape)
@@ -213,7 +211,11 @@ def yolo3_botella(src_, types_, umbral_):
             img_sub = img_ORIGINAL_TO_1024[y:y+h, x:x+w]
 
             img_sub_path = "C:/RSILVA_BOT_BASICS/ETL_CADEM/VISION_ARTIFICIAL/DEMO_OBJETOS/SUB_IMAGENES"
+
             img_sub_path_paleta = "C:/RSILVA_BOT_BASICS/ETL_CADEM/VISION_ARTIFICIAL/DEMO_OBJETOS/CLUSTERIZAR_PALETA"
+
+
+
 
             if os.name != 'nt':
                 print("tamos en linus compare")
@@ -224,6 +226,7 @@ def yolo3_botella(src_, types_, umbral_):
 
             try:
                 os.makedirs( img_sub_path)
+                os.makedirs( img_sub_path_paleta)
             except Exception as ex:
                 #print(f"folder ya existe:{img_sub_path}")
                 a=0
@@ -286,9 +289,18 @@ def yolo3_botella(src_, types_, umbral_):
 
     else:
 
-        print("VAMOS A ESCRIBIR EL JSON EL LOCAL")
+        print("VAMOS A ESCRIBIR EL JPG EN LOCAL")
+        print(f'EL PATH: {path_}_OUT_BANDEJERO_1024_{src_}')
+        cv2.imwrite(f'{path_}_OUT_BANDEJERO_1024_{src_}', img)
+
+
+        print("VAMOS A ESCRIBIR EL JSON EN LOCAL")
 
         ruta_OUT = f'{path_}_OUT_BANDEJERO_1024_{src_}'
+
+
+
+
         print("ruta_OUT:{ruta_OUT}")
         cv2.imwrite(ruta_OUT,img)
 
@@ -356,7 +368,7 @@ def _RSILVA_20220330_visualize_Dominant_colors__(path_,file_,cluster, C_centroid
     return salida
 
 def __paleta__(path_, file_):
-    print(f"__paleta__:{file_}")
+    print(f"__paleta__:{path_}-->{file_}")
     __clusters__ = 3
     out = {}
     # Load image
@@ -414,8 +426,36 @@ def __paleta__(path_, file_):
 #testYolo("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
 #yolo3_botella("TEST_COCA_COLA_2220629.jpg", types_=['bottle']) # coca cola
 #yolo3_botella("TEST_ANDINA_20220629.jpg", types_=['bottle'], umbral_=0.85) # coca cola
-yolo3_botella("TEST_SPRITE_20220629.jpg", types_=['bottle'], umbral_=0.85) # coca cola
+
 #testYolo("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle']) # coca cola
+
+
+
+#TESTEADO 20230410
+#SPRITES
+#yolo3_botella("_ELEGIDA_26012022113354_FOTO_SALA_BUENA.jpg", types_=['bottle'], umbral_=0.85) # sprites
+
+#COCA COLA
+yolo3_botella("_ELEGIDA_27012022165311_FOTO_SALA_BUENA.jpg", types_=['bottle'], umbral_=0.85) # sprites
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
