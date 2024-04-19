@@ -39,38 +39,6 @@ escape
 git push
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-jdsgjfh
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 google recokldkjff
 git clone
 
